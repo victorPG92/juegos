@@ -7,7 +7,7 @@ import org.junit.Assert;
 import juegos.cartas.cartas.cartas.ICartaComparable;
 import juegos.cartas.cartas.cartas.dom.Dominio;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
-import juegos.cartas.cartas.mazos.fact.impl.FactMazoConcreto;
+import juegos.cartas.cartas.mazos.fact.FactMazoConcreto;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
 

@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.mazos.fact.impl;
+package juegos.cartas.cartas.mazos.fact;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.Dominio;
