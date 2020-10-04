@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import juegos.cartas.cartas.cartas.Carta;
-import juegos.cartas.cartas.cartas.Palo;
+import juegos.cartas.cartas.cartas.PaloFrances;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
@@ -36,7 +36,7 @@ public class MazoOptMatriz  implements
 	
 	
 	
-	private static final  int NUM_PALOS=  Palo.values().length;
+	private static final  int NUM_PALOS=  PaloFrances.values().length;
 	private static final  int NUM_CARTAS= 13;
 	
 	public MazoOptMatriz()
@@ -44,7 +44,7 @@ public class MazoOptMatriz  implements
 		mazo =  new Carta[NUM_PALOS][NUM_CARTAS];
 		seleccionada= new boolean[NUM_PALOS][NUM_CARTAS];
 		cont = NUM_PALOS*NUM_CARTAS;
-		for(Palo p : Palo.values())
+		for(PaloFrances p : PaloFrances.values())
 		{
 			for(int i=0;i<NUM_CARTAS;i++)//cambiado
 				mazo[p.ordinal()][i]= new Carta(i+1,p);
@@ -70,7 +70,7 @@ public class MazoOptMatriz  implements
 			int nPalo = r.nextInt(NUM_PALOS);
 			int nCarta = r.nextInt(NUM_CARTAS);
 			
-			Palo p =  Palo.values()[nPalo];
+			PaloFrances p =  PaloFrances.values()[nPalo];
 			Carta c = new Carta(nCarta+1,p);
 			
 			while(estaSeleccionada(c))
@@ -78,7 +78,7 @@ public class MazoOptMatriz  implements
 				nPalo = r.nextInt(NUM_PALOS);
 				nCarta = r.nextInt(NUM_CARTAS);
 				
-				p =  Palo.values()[nPalo];
+				p =  PaloFrances.values()[nPalo];
 				c = new Carta(nCarta+1,p);
 			}
 			

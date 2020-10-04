@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import juegos.cartas.cartas.cartas.Carta;
-import juegos.cartas.cartas.cartas.Palo;
+import juegos.cartas.cartas.cartas.PaloFrances;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
@@ -41,7 +41,7 @@ MazoInsercion<Carta>
 	{
 		mazo = new LinkedList<>();
 		cartasUsadas = new LinkedList<>();
-		for(Palo p : Palo.values())
+		for(PaloFrances p : PaloFrances.values())
 		{
 			for(int i=1;i<14;i++)//cambiado
 				mazo.add(new Carta(i,p));

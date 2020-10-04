@@ -5,10 +5,12 @@ package juegos.cartas.cartas.cartas;
  * @author victor
  *
  */
-public class CartaNumero extends CartaNumeroPalo<NumeroCarta, Palo>
+public class CartaNumero 
+extends CartaNumeroPalo<NumeroCarta, PaloFrances> 
+implements Comparable<CartaNumero>
 {
 	
-	public CartaNumero(NumeroCarta n , Palo p)
+	public CartaNumero(NumeroCarta n , PaloFrances p)
 	{
 		super(n,p);
 	}
@@ -21,9 +23,9 @@ public class CartaNumero extends CartaNumeroPalo<NumeroCarta, Palo>
 	}
 
 	@Override
-	public int compareTo(ICartaComparable i) 
+	public int compareTo(CartaNumero o) 
 	{
-		CartaNumero o= (CartaNumero) i;
+		//CartaNumero o= (CartaNumero) i;
 		int n1=numero.valor;
 		int n2=o.numero.valor;
 		if(n1==1)n1 = 15;

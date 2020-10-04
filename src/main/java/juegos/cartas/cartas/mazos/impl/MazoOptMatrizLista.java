@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import juegos.cartas.cartas.cartas.Carta;
-import juegos.cartas.cartas.cartas.Palo;
+import juegos.cartas.cartas.cartas.PaloFrances;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
@@ -39,7 +39,7 @@ MazoInsercion<Carta>
 
 	List<Carta> cartasOrdenadas;
 	
-	private static final  int NUM_PALOS=  Palo.values().length;
+	private static final  int NUM_PALOS=  PaloFrances.values().length;
 	private static final  int NUM_CARTAS= 13;
 	
 	Random r = new Random(System.currentTimeMillis());
@@ -51,7 +51,7 @@ MazoInsercion<Carta>
 		mazo =  new Carta[NUM_PALOS][NUM_CARTAS];
 		seleccionada= new boolean[NUM_PALOS][NUM_CARTAS];
 		cartasOrdenadas= new LinkedList<>();
-		for(Palo p : Palo.values())
+		for(PaloFrances p : PaloFrances.values())
 		{
 			for(int i=0;i<NUM_CARTAS;i++)//cambiado
 			{
@@ -114,10 +114,10 @@ MazoInsercion<Carta>
 	 * desplaza los indices desde ese palo, es decir, los siguientes
 	 * @param palo
 	 */
-	private void desplazarIndices(Palo palo)
+	private void desplazarIndices(PaloFrances palo)
 	{
 		int i=palo.ordinal()+1;
-		for(i=palo.ordinal()+1;i< Palo.values().length;i++)
+		for(i=palo.ordinal()+1;i< PaloFrances.values().length;i++)
 			indices[i]=indices[i]+1;
 		
 	}

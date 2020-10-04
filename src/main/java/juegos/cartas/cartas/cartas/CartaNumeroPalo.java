@@ -2,7 +2,8 @@ package juegos.cartas.cartas.cartas;
 
 import java.util.Comparator;
 
-public class CartaNumeroPalo<N,P> implements ICartaComparable{
+public class CartaNumeroPalo<N,P> implements ICartaComparable
+{
 
 	protected N numero;
 	protected P palo;
@@ -11,7 +12,7 @@ public class CartaNumeroPalo<N,P> implements ICartaComparable{
 	 * Compara las cartas para saber cual vale mas dentro del juego
 	 * no para ordenar , por ejemplo, 
 	 */
-	Comparator<CartaNumeroPalo<N,P>> compCartasValor;
+	//Comparator<CartaNumeroPalo<N,P>> compCartasValor;
 	
 	public CartaNumeroPalo(N numero, P palo) {
 		super();
@@ -43,6 +44,7 @@ public class CartaNumeroPalo<N,P> implements ICartaComparable{
 		return r;
 	}
 
+	/*
 	public final Comparator<CartaNumeroPalo<N, P>> getCompCartasValor() {
 		return compCartasValor;
 	}
@@ -50,7 +52,7 @@ public class CartaNumeroPalo<N,P> implements ICartaComparable{
 	public final void setCompCartasValor(Comparator<CartaNumeroPalo<N, P>> compCartasValor) {
 		this.compCartasValor = compCartasValor;
 	}
-
+*/
 	public final void setNumero(N numero) {
 		this.numero = numero;
 	}
@@ -59,11 +61,12 @@ public class CartaNumeroPalo<N,P> implements ICartaComparable{
 		this.palo = palo;
 	}
 
+	/*
 	@Override
 	public int compareTo(ICartaComparable o) {
 		return compCartasValor.compare(this, (CartaNumeroPalo<N,P>)o);
 	}
-	
+	*/
 	
 	
 	
