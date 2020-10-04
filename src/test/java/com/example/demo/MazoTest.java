@@ -7,10 +7,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.ICartaComparable;
-import juegos.cartas.cartas.cartas.PaloFrances;
-import juegos.cartas.cartas.mazos.fact.FactMazoConcreto;
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.mazos.fact.FactMazoConcretoEnums;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 
@@ -55,7 +54,7 @@ public class MazoTest
 	@Test
 	public void testDameCartaConcreta() throws Exception 
 	{
-		ICartaComparable cartaConcreta= new Carta(2,PaloFrances.CORAZONES);
+		ICartaComparable cartaConcreta= new CartaNumeroPalo(2,PaloFrances.CORAZONES);
 		ICartaComparable carta=mazo.dameCartaConcreta(cartaConcreta);
 		
 		Assert.assertNotNull(carta);
@@ -70,17 +69,17 @@ public class MazoTest
 	public void testDameNCartasConcretas() throws Exception 
 	{
 		int n=2;
-		Carta cartaConcreta1= new Carta(1,PaloFrances.CORAZONES);
+		CartaNumeroPalo cartaConcreta1= new CartaNumeroPalo(1,PaloFrances.CORAZONES);
 
-		Carta cartaConcreta2= new Carta(2,PaloFrances.CORAZONES);
+		CartaNumeroPalo cartaConcreta2= new CartaNumeroPalo(2,PaloFrances.CORAZONES);
 
-		List<Carta> cartasConcretas= new ArrayList<>();
+		List<CartaNumeroPalo> cartasConcretas= new ArrayList<>();
 		
 		cartasConcretas.add(cartaConcreta1);
 		cartasConcretas.add(cartaConcreta2);
 
 		
-		List<Carta> cartas = mazo.dameNCartasConcretas(cartasConcretas);
+		List<CartaNumeroPalo> cartas = mazo.dameNCartasConcretas(cartasConcretas);
 		
 		Assert.assertNotNull(cartas);
 		
@@ -91,9 +90,9 @@ public class MazoTest
 		for (int i = 0; i < cartas.size(); i++)
 		{
 			
-			Carta carta= cartas.get(i);
-			Carta cartaConcreta= cartasConcretas.get(i);
-			Assert.assertTrue(carta.compareTo(cartaConcreta)==0);
+			CartaNumeroPalo carta= cartas.get(i);
+			CartaNumeroPalo cartaConcreta= cartasConcretas.get(i);
+			Assert.assertTrue(carta.equals(cartaConcreta));
 
 		}
 

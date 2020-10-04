@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Random;
 
 import juegos.cartas.cartas.cartas.Carta;
-import juegos.cartas.cartas.cartas.PaloFrances;
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.MazoConsulta;

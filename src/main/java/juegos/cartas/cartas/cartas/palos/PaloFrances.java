@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.cartas;
+package juegos.cartas.cartas.cartas.palos;
 
 /**
  * Los palos de la baraja francesa

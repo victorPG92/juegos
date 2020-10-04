@@ -8,6 +8,11 @@ import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerString;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGenOptMatrizLista;
 
+/**
+ * Crea mazos concretos de barajas espaniola y francesa con palos string
+ * @author victor
+ *
+ */
 public class FactMazoConcreto 
 {
 	public MazoGen crearBarajaEspaniola()

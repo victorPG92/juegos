@@ -2,6 +2,8 @@ package juegos.cartas.cartas.cartas.dom;
 
 /**
  * Obtiene el objeto a traves de su alias
+  * Obtiene los alias de los valores del dominio y su representacion en string
+
  * @author victor
  *
  * @param <T>

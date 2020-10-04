@@ -1,10 +1,10 @@
 package juegos.cartas.cartas.cartas.supplier;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
-import juegos.cartas.cartas.cartas.PaloFrances;
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**
- * Provee una nueva carta con numero y palo
+ * Provee una nueva carta con numero y palo frances con enumerado
  * @author victor
  *
  * @param <C>

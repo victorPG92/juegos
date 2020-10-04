@@ -4,6 +4,13 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Obtiene los alias de los valores del dominio y su representacion en string
+ * Almacena los alias en mapas
+ * @author victor
+ *
+ * @param <T>
+ */
 public class GetterByAliasSimpleMap<T> implements GetterByAlias<T> {
 
 	Map<String,T> mapAlias= new HashMap<>();

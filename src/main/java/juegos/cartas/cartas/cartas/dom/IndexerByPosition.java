@@ -5,6 +5,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Obtiene los indices de los valores de un dominio, segun la posicion que ocupan en el
+ * @author victor
+ *
+ * @param <T>
+ */
 public class IndexerByPosition<T>  implements Indexer<T>{
 
 	Map<T,Integer> indexes= new HashMap<>();

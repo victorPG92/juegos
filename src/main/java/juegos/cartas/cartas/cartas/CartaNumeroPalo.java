@@ -2,6 +2,18 @@ package juegos.cartas.cartas.cartas;
 
 import java.util.Comparator;
 
+/**
+ * Carta con 2 caracteristicas, valor y palo
+ * los cuales pueden son parametrizables
+ * esta implementada la igualdad
+ * ( primero se compara el palo y
+ *  luego el numero 
+ *  por suposicion que hay menos palos que numeros)
+ * @author victor
+ *
+ * @param <N>
+ * @param <P>
+ */
 public class CartaNumeroPalo<N,P> implements ICartaComparable
 {
 

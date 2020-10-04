@@ -2,6 +2,12 @@ package juegos.cartas.cartas.cartas.dom;
 
 import java.util.Comparator;
 
+/**
+ * Crea comparadores
+ * @author victor
+ *
+ * @param <V>
+ */
 public class FactComparator<V> {
 
 	

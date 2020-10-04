@@ -9,7 +9,11 @@ import java.util.Set;
 import juegos.cartas.cartas.utils.MazoUtils;
 
 /**
- * Dominio de un 
+ * Dominio de un tipo V
+ * Contiene los valores posibles para una entidad
+ * Se debe definir, la forma de indexar los elementos
+ * acceder a los elementos a través de un alias
+ * un comparador 
  * @author victor
  *
  * @param <V>

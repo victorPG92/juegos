@@ -8,6 +8,14 @@ import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
 import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
 
+/**
+ * Mazo padre que tiene las partes necesarias para controlar los dominios de las cartas y creador de cartas
+ * @author victor
+ *
+ * @param <C>
+ * @param <N>
+ * @param <P>
+ */
 public abstract class MazoGen<C extends CartaNumeroPalo<N, P>,N,P> 
 implements
 MazoCartasSimple<C>,

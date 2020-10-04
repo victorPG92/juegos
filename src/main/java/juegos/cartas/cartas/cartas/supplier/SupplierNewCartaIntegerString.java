@@ -3,7 +3,7 @@ package juegos.cartas.cartas.cartas.supplier;
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 
 /**
- * Provee una nueva carta con numero y palo
+ * Provee una nueva carta con numero y palo en string
  * @author victor
  *
  * @param <C>

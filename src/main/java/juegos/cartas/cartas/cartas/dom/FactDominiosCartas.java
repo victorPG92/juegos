@@ -3,6 +3,12 @@ package juegos.cartas.cartas.cartas.dom;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Crea dominios concretos de valores y palos de las cartas espaniola y francesa
+ * con palos tipo string
+ * @author victor
+ *
+ */
 public class FactDominiosCartas 
 {
 	

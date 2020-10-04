@@ -1,16 +1,21 @@
 package juegos.cartas.cartas.mazos.fact;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
-import juegos.cartas.cartas.cartas.PaloFrances;
 import juegos.cartas.cartas.cartas.dom.Dominio;
 import juegos.cartas.cartas.cartas.dom.FactDominiosCartas;
 import juegos.cartas.cartas.cartas.dom.FactDominiosCartasEnum;
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerPaloFrances;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerString;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGenOptMatrizLista;
 
+/**
+ * Crea mazos concretos de barajas espaniola y francesa con palos enums
+ * @author victor
+ *
+ */
 public class FactMazoConcretoEnums 
 {
 	public MazoGen crearBarajaEspaniola()

@@ -3,8 +3,14 @@ package juegos.cartas.cartas.cartas.dom;
 import java.util.HashSet;
 import java.util.Set;
 
-import juegos.cartas.cartas.cartas.PaloFrances;
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
+/**
+* Crea dominios concretos de valores y palos de las cartas espaniola y francesa
+* con palos con tipo enumerados
+* @author victor
+*
+*/
 public class FactDominiosCartasEnum 
 {
 	

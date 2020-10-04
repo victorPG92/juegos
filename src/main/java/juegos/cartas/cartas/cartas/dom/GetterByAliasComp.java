@@ -3,6 +3,14 @@ package juegos.cartas.cartas.cartas.dom;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+  * Obtiene los alias de los valores del dominio y su representacion en string
+
+ * Obtiene los alias a traves de varios getters ordenados
+ * @author victor
+ *
+ * @param <T>
+ */
 public class GetterByAliasComp<T> implements GetterByAlias<T>
 {
 	List<GetterByAlias<T>> getters= new ArrayList<>();

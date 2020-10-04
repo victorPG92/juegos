@@ -1,5 +1,7 @@
 package juegos.cartas.cartas.cartas;
 
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
+
 /**
  * Estructura carta con palo y numero
  * @author victor
