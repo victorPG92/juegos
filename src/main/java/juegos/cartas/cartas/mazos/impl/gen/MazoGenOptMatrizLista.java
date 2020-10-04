@@ -46,7 +46,7 @@ MazoInsercion<C>
 
 	int indices[]= new int[4];
 	
-	boolean shuffle=false;
+	boolean shuffle=true;
 	
 	public MazoGenOptMatrizLista(SupplierNewCarta<C, N, P> s, Dominio<P> domP, Dominio<N> domV)
 	{
@@ -62,6 +62,9 @@ MazoInsercion<C>
 			{
 				System.out.println(indicePalo+" "+ i);
 				C carta=supplierNewCarta.creaNuevaCarta(dominioValores.get(i), p);//new Carta(i+1,p);
+				
+				//System.out.println(""+carta.getNumero() + carta.getPalo());
+				
 				mazo[indicePalo][i]= carta;
 				cartasOrdenadas.add(carta);
 			}
@@ -297,9 +300,10 @@ MazoInsercion<C>
 				int indiceEncontrado=busquedaBinaria(cartaConcreta);
 				
 				if(indiceEncontrado!=-1)
-				cartasOrdenadas.remove(indiceEncontrado);
-			}else
+					cartasOrdenadas.remove(indiceEncontrado);
+			}else {
 				cartasOrdenadas.remove(cartaConcreta);
+			}
 			return mazo[p][n];
 		
 			

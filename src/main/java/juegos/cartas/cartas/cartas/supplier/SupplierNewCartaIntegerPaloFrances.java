@@ -16,7 +16,7 @@ public class SupplierNewCartaIntegerPaloFrances implements SupplierNewCarta<Cart
 
 	@Override
 	public CartaNumeroPalo<Integer, PaloFrances> creaNuevaCarta(Integer numero, PaloFrances palo) {
-		return new CartaNumeroPalo<Integer, PaloFrances>(numero,palo	) ;
+		return new CartaNumeroPalo<Integer, PaloFrances>(numero,palo) ;
 	}
 
 	@Override

@@ -87,10 +87,14 @@ e.printStackTrace();		}
 		
 		List<CartaNumeroPalo<Integer,PaloFrances>> cartas = mazo.dameNCartasConcretas(cartasConcretas);
 		
+		System.out.println("cartas nulas");
 		Assert.assertNotNull(cartas);
 		
+		System.out.println("mazo vacio");
 		Assert.assertTrue(!cartas.isEmpty());
 
+		
+		System.out.println("cartas tam");
 		Assert.assertTrue(cartas.size()==cartasConcretas.size());
 		
 		for (int i = 0; i < cartas.size(); i++)
@@ -98,6 +102,8 @@ e.printStackTrace();		}
 			
 			CartaNumeroPalo<Integer,PaloFrances> carta= cartas.get(i);
 			CartaNumeroPalo<Integer,PaloFrances> cartaConcreta= cartasConcretas.get(i);
+			
+			System.out.println(carta + " == "+ cartaConcreta);
 			Assert.assertTrue(carta.equals(cartaConcreta));
 
 		}
