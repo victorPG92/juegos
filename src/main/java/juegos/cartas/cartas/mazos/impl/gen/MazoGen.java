@@ -2,6 +2,7 @@ package juegos.cartas.cartas.mazos.impl.gen;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
+import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
@@ -26,11 +27,21 @@ MazoInsercion<C>
 
 	protected Dominio<P> dominioPalos;
 	protected Dominio<N> dominioValores;
+	
+	DominioValorPalo<N , P> dominioCompuesto;
+	
 	protected  int NUM_PALOS;//=  Palo.values().length;
 	protected  int NUM_CARTAS;//= 13;
 	
 	protected SupplierNewCarta<C, N, P> supplierNewCarta;
 	
+	public MazoGen(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P> domComp)
+	{
+		
+		this(s, domComp.getDomPalo(),domComp.getDomValor());
+		dominioCompuesto= domComp;
+		
+	}
 	
 	public MazoGen(SupplierNewCarta<C, N, P> s, Dominio<P> domP, Dominio<N> domN)
 	{
@@ -68,6 +79,11 @@ MazoInsercion<C>
 	public final SupplierNewCarta<C, N, P> getSupplierNewCarta() {
 		return supplierNewCarta;
 	}
+
+	public final DominioValorPalo<N, P> getDominioCompuesto() {
+		return dominioCompuesto;
+	}
+	
 	
 	
 }

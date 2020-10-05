@@ -1,6 +1,6 @@
 package juegos.cartas.cartas.cartas.dom.alias;
 
-@Deprecated
+//@Deprecated
 /**
  * Obtiene la traduccion de un valor de un dominio, 
  * ahora se realiza con el alias GetterByAlias
@@ -8,8 +8,13 @@ package juegos.cartas.cartas.cartas.dom.alias;
  *
  * @param <T>
  */
-public interface ToString<T> 
+public class ParToStringEsp implements ParToString//<V,P> 
 {
-	String toString(T t);
+	
+	String prep=" de ";
+	public String toString(String num, String palo)
+	{
+		return num + prep + palo; 
+	}
 
 }
