@@ -1,13 +1,14 @@
 package juegos.cartas.cartas.mazos.impl.gen;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
-import juegos.cartas.cartas.cartas.dom.Dominio;
+import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
@@ -282,6 +283,10 @@ MazoInsercion<C>
 		int n= dominioValores.indexOf(cartaConcreta.getNumero());//-1;
 		if(n==13)n=1; // si es as
 		int p= dominioPalos.indexOf(cartaConcreta.getPalo());
+		
+		System.out.println("MazoGenOptMatrizLista.dameCartaConcreta.pos "+n +" "+ p);
+		for(int i=0;i<mazo.length;i++)
+			System.out.println(Arrays.toString(mazo[i]));
 		boolean b=false;
 		try
 		{
@@ -293,6 +298,8 @@ MazoInsercion<C>
 			System.err.println("mazo. esta seleccionada "+cartaConcreta + " "+ n +" "+ p );
 			
 		}
+		
+		
 		if(b)
 		{
 			if(shuffle)
@@ -304,6 +311,9 @@ MazoInsercion<C>
 			}else {
 				cartasOrdenadas.remove(cartaConcreta);
 			}
+			
+			
+			//devuelve la carta en la matriz encontradas las posiciones
 			return mazo[p][n];
 		
 			

@@ -60,11 +60,14 @@ e.printStackTrace();		}
 	@Test
 	public void testDameCartaConcreta() throws Exception 
 	{
+		
+		System.out.println("empezando el test carta concreta");
 		ICartaComparable cartaConcreta= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
 		ICartaComparable carta=mazo.dameCartaConcreta(cartaConcreta);
 		
 		Assert.assertNotNull(carta);
 	
+		System.out.println(carta);
 		
 		Assert.assertTrue(carta.equals(cartaConcreta));
 		

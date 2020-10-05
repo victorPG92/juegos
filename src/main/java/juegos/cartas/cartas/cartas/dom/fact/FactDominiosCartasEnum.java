@@ -1,8 +1,9 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.fact;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**

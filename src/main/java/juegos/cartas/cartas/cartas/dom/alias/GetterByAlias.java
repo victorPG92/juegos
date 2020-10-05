@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.alias;
 
 /**
  * Obtiene el objeto a traves de su alias
@@ -34,5 +34,12 @@ public interface GetterByAlias<T>
 	 * @return
 	 */
 	public String toString(T t); 
+	
+	/**
+	 * Cambia el alias de manera bidireccional
+	 * @param t
+	 * @param s
+	 */
+	public void cambiarAlias(T t, String s);
 
 }

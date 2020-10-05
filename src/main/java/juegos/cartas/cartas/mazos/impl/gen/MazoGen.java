@@ -1,7 +1,7 @@
 package juegos.cartas.cartas.mazos.impl.gen;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
-import juegos.cartas.cartas.cartas.dom.Dominio;
+import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;

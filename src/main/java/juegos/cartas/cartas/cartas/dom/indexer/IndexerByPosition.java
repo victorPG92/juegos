@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.indexer;
 
 import java.util.HashMap;
 import java.util.List;

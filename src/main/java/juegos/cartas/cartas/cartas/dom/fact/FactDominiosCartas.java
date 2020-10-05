@@ -1,7 +1,11 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.fact;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import juegos.cartas.cartas.cartas.dom.alias.GetterByAlias;
+import juegos.cartas.cartas.cartas.dom.alias.GetterByAliasSimpleMap;
+import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 
 /**
  * Crea dominios concretos de valores y palos de las cartas espaniola y francesa
@@ -50,6 +54,17 @@ public class FactDominiosCartas
 		
 		Dominio<Integer> dom= new Dominio<>(valores, fComp.creaComparadorDeComparable());
 		
+		dom.getGetterByAlias().cambiarAlias(11, "J");
+		dom.getGetterByAlias().cambiarAlias(12, "Q");
+		dom.getGetterByAlias().cambiarAlias(13, "K");
+
+		
+		
 		return dom;
 	}
+	
+	/*public GetterByAlias<Integer> getAliasFrances(Collection<> coll)
+	{
+		GetterByAlias<Integer> getter= new GetterByAliasSimpleMap<>(coll) 
+	}*/
 }

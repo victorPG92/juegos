@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.indexer;
 
 /**
  * Establece un indice para los valores de un dominio

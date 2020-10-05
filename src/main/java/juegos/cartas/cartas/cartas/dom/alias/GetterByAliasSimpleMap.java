@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.alias;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -46,7 +46,16 @@ public class GetterByAliasSimpleMap<T> implements GetterByAlias<T> {
 	public String toString(T t) {
 		return mapString.get(t);
 	}
+
 	
+	@Override
+	public void cambiarAlias(T t, String s) 
+	{
+		String oldAlias= mapString.get(t);
+		mapString.put(t, s);
+		mapAlias.remove(oldAlias);
+		mapAlias.put(s, t);
+	}
 	
 
 }

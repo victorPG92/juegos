@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.dominios;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -6,6 +6,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import juegos.cartas.cartas.cartas.dom.alias.GetterByAlias;
+import juegos.cartas.cartas.cartas.dom.alias.GetterByAliasSimpleMap;
+import juegos.cartas.cartas.cartas.dom.indexer.Indexer;
+import juegos.cartas.cartas.cartas.dom.indexer.IndexerByPosition;
 import juegos.cartas.cartas.utils.MazoUtils;
 
 /**
@@ -157,6 +161,26 @@ public class Dominio<V> implements Iterable<V>
 	public Iterator<V> iterator() {
 		
 		return values.iterator();
+	}
+
+
+	public final Indexer<V> getIndexer() {
+		return indexer;
+	}
+
+
+	public final void setIndexer(Indexer<V> indexer) {
+		this.indexer = indexer;
+	}
+
+
+	public final GetterByAlias<V> getGetterByAlias() {
+		return getterByAlias;
+	}
+
+
+	public final void setGetterByAlias(GetterByAlias<V> getterByAlias) {
+		this.getterByAlias = getterByAlias;
 	}
 	
 	

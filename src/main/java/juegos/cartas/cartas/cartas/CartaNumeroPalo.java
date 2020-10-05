@@ -80,7 +80,10 @@ public class CartaNumeroPalo<N,P> implements ICartaComparable
 	}
 	*/
 	
-	
+	@Override
+	public String toString() {
+		return "["+numero+ " de "+ palo+"]";
+	}
 	
 	
 	

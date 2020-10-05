@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.cartas.dom;
+package juegos.cartas.cartas.cartas.dom.alias;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +41,12 @@ public class GetterByAliasComp<T> implements GetterByAlias<T>
 				return s;
 		}
 		return "";
+	}
+
+	@Override
+	public void cambiarAlias(T t, String s) {
+		if(!getters.isEmpty())
+			getters.get(0).cambiarAlias(t, s);		
 	}
 
 	
