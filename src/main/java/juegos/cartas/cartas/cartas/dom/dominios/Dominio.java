@@ -128,6 +128,11 @@ public class Dominio<V> implements Iterable<V>
 		return getterByAlias.getByAlias(alias);
 	}
 	
+	public String toString(V v)
+	{
+		return getterByAlias.toString(v);
+	}
+	
 	public int indexOf(V v)
 	{
 		return indexer.indexOf(v);

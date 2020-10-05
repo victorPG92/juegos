@@ -61,7 +61,7 @@ MazoInsercion<C>
 			
 			for(int i=0;i<NUM_CARTAS;i++)//cambiado
 			{
-				System.out.println(indicePalo+" "+ i);
+				//System.out.println(indicePalo+" "+ i);
 				C carta=supplierNewCarta.creaNuevaCarta(dominioValores.get(i), p);//new Carta(i+1,p);
 				
 				//System.out.println(""+carta.getNumero() + carta.getPalo());
@@ -284,9 +284,14 @@ MazoInsercion<C>
 		if(n==13)n=1; // si es as
 		int p= dominioPalos.indexOf(cartaConcreta.getPalo());
 		
+		/*
+		System.out.println("Pidiendo carta "+ dominioValores.toString(cartaConcreta.getNumero())+ " "+ dominioPalos.toString(cartaConcreta.getPalo()));
 		System.out.println("MazoGenOptMatrizLista.dameCartaConcreta.pos "+n +" "+ p);
+		
 		for(int i=0;i<mazo.length;i++)
 			System.out.println(Arrays.toString(mazo[i]));
+		*/
+		
 		boolean b=false;
 		try
 		{
@@ -300,9 +305,9 @@ MazoInsercion<C>
 		}
 		
 		
-		if(b)
+		if(!b)
 		{
-			if(shuffle)
+			if(!shuffle)
 			{
 				int indiceEncontrado=busquedaBinaria(cartaConcreta);
 				
