@@ -11,7 +11,7 @@ import juegos.cartas.cartas.utils.ConstantesPR1;
  * @author victor
  *
  */
-public class Trio extends Mano 
+public class Trio extends ManoPoker 
 {
 
 	

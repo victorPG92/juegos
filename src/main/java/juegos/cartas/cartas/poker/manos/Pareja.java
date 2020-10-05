@@ -12,7 +12,7 @@ import juegos.cartas.cartas.utils.ConstantesPR1;
  * @author victor
  *
  */
-public class Pareja extends Mano
+public class Pareja extends ManoPoker
 {
 	
 	

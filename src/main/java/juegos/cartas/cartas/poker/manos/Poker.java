@@ -12,7 +12,7 @@ import juegos.cartas.cartas.utils.ConstantesPR1;
  *
  */
 public class Poker 
-extends Mano{
+extends ManoPoker{
 
 	private int kind;
 	

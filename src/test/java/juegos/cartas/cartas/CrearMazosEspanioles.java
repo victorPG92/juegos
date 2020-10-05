@@ -1,4 +1,4 @@
-package com.example.demo;
+package juegos.cartas.cartas;
 
 import java.util.List;
 

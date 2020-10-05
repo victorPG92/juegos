@@ -1,11 +1,9 @@
-package com.example.demo;
+package juegos.cartas.cartas;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

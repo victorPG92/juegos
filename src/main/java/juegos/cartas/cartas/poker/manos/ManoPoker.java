@@ -3,6 +3,7 @@ package juegos.cartas.cartas.poker.manos;
 import java.util.List;
 
 import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.mesas.Mano;
 
 
 /**
@@ -11,7 +12,7 @@ import juegos.cartas.cartas.cartas.Carta;
  * Estructura de mano
  *
  */
-public abstract class Mano implements Comparable<Mano>
+public abstract class ManoPoker implements /*Comparable<ManoPoker>,*/  Mano
 {
 	
 	
@@ -50,10 +51,10 @@ public abstract class Mano implements Comparable<Mano>
 	 * Sera sobreeescrito en las clases hijas
 	 */
 	 @Override
-	public int compareTo(Mano m2)
+	public int compareTo(Mano m)
 	{
 		
-		
+		ManoPoker m2 =(ManoPoker) m;
 		int r=0;
 		
 		if(tipo.getValor()		<	m2.tipo.getValor())  r = -1;

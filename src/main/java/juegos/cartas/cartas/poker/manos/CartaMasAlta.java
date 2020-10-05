@@ -3,6 +3,7 @@ package juegos.cartas.cartas.poker.manos;
 import java.util.List;
 
 import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.mesas.Mano;
 import juegos.cartas.cartas.utils.ConstantesPR1;
 
 /**
@@ -11,8 +12,8 @@ import juegos.cartas.cartas.utils.ConstantesPR1;
  * @author victor
  *
  */
-public class CartaMasAlta extends ManoSegunCompararTodas implements Comparable<Mano> {
-
+public class CartaMasAlta extends ManoSegunCompararTodas //implements Comparable<ManoPoker> {
+{
 	/** Constructor de carta mas alta
 	 * 
 	 * @param mano
