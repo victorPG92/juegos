@@ -88,8 +88,8 @@ MazoInsercion<C>
 	{
 		 C cartaElegida=cartasOrdenadas.get(r.nextInt(cartasOrdenadas.size()));
 		 
-		 seleccionada[dominioPalos.indexOf(cartaElegida.getPalo())-1][dominioValores.indexOf(cartaElegida.getNumero())-1]=true;
-		 
+		 seleccionada[dominioPalos.indexOf(cartaElegida.getPalo())][dominioValores.indexOf(cartaElegida.getNumero())]=true;
+		 //-1
 		 if(!shuffle)
 			 desplazarIndices(cartaElegida.getPalo(),-1);
 		 
