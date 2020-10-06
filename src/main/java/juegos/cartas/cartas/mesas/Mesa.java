@@ -10,5 +10,33 @@ public class Mesa
 	List<CeldaCartaMesa> cartasComunes= new ArrayList<>();
 	
 	
+	
+	
+
+	public Mesa(List<Jugador> jugadores) {
+		super();
+		this.jugadores = jugadores;
+	}
+
+	public final List<Jugador> getJugadores() {
+		return jugadores;
+	}
+
+	/*
+	public final void setJugadores(List<Jugador> jugadores) {
+		this.jugadores = jugadores;
+	}*/
+
+	public final List<CeldaCartaMesa> getCartasComunes() {
+		return cartasComunes;
+	}
+
+	public final void setCartasComunes(List<CeldaCartaMesa> cartasComunes) {
+		this.cartasComunes = cartasComunes;
+	}
+	
+	
+	
+	
 
 }
