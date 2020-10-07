@@ -8,10 +8,10 @@ import juegos.cartas.cartas.cartas.palos.PaloFrances;
  *
  */
 public class Carta extends CartaNumeroPalo<Integer,PaloFrances> implements Comparable<Carta>
-{
+{/*
 	private PaloFrances palo;
 	private int num;
-
+*/
 	public Carta(int n , PaloFrances p)
 	{
 		super(n,p);
@@ -22,15 +22,16 @@ public class Carta extends CartaNumeroPalo<Integer,PaloFrances> implements Compa
 
 	public String toString()
 	{
-		return NumCarta.nombreCarta(num) + " of " +palo.ing();//.name();
+		return numero +" de "+ palo;
+		//return NumCarta.nombreCarta(num) + " of " +palo.ing();//.name();
 	}
 
 	@Override
 	public int compareTo(Carta o) 
 	{
 		//Carta o= (Carta) i;
-		int n1=num;
-		int n2=o.num;
+		int n1=numero;
+		int n2=o.numero;
 		if(n1==1)n1 = 15;
 		if(n2==1)n2 = 15;
 		
@@ -44,12 +45,12 @@ public class Carta extends CartaNumeroPalo<Integer,PaloFrances> implements Compa
 	
 	public String dameNombre()
 	{
-		return NumCarta.nombreCarta(num);
+		return NumCarta.nombreCarta(numero);
 	}
 	
 	public String dameLetras()
 	{
-		return NumCarta.letraCarta(num)+ Character.toLowerCase(palo.letr());
+		return NumCarta.letraCarta(numero)+ Character.toLowerCase(palo.letr());
 	}
 	
 	
@@ -62,7 +63,7 @@ public class Carta extends CartaNumeroPalo<Integer,PaloFrances> implements Compa
 		try
 		{
 			Carta c = (Carta)o;
-			return this.num == c.num && this.palo.equals(c.palo);
+			return this.numero == c.numero && this.palo.equals(c.palo);
 		}
 		catch(Exception e)
 		{

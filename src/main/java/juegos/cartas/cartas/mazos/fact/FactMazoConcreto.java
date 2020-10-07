@@ -15,7 +15,7 @@ import juegos.cartas.cartas.mazos.impl.gen.MazoGenOptMatrizLista;
  */
 public class FactMazoConcreto 
 {
-	public MazoGen crearBarajaEspaniola()
+	public MazoGen<CartaNumeroPalo<Integer, String>, Integer, String> crearBarajaEspaniola()
 	{
 		MazoGen<CartaNumeroPalo<Integer, String>, Integer, String> mazo;
 		FactDominiosCartas fDom= new FactDominiosCartas();
@@ -29,7 +29,7 @@ public class FactMazoConcreto
 		return mazo;
 	}
 	
-	public MazoGen crearBarajaFrancesa()
+	public MazoGen<CartaNumeroPalo<Integer, String>, Integer, String> crearBarajaFrancesa()
 	{
 		MazoGen<CartaNumeroPalo<Integer, String>, Integer, String> mazo;
 		FactDominiosCartas fDom= new FactDominiosCartas();

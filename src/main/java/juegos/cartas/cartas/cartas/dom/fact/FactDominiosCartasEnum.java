@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
+import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**
@@ -30,10 +31,10 @@ public class FactDominiosCartasEnum
 		return dom;
 	}
 	
-	public Dominio<Enum> getDominioPalosCartasEspaniolas()
+	public Dominio<PaloEspaniol> getDominioPalosCartasEspaniolas()
 	{
-		return new Dominio(Set.of("oros","copas","espadas","bastos"),
-				new FactComparator<String>().creaComparadorDeComparable());
+		return new Dominio<>(Set.of(PaloEspaniol.OROS, PaloEspaniol.COPAS, PaloEspaniol.ESPADAS, PaloEspaniol.BASTOS),
+				new FactComparator<PaloEspaniol>().creaComparadorDeComparable());
 		
 	}
 

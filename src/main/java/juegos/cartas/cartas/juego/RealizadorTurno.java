@@ -27,5 +27,27 @@ public abstract class RealizadorTurno<C extends ICartaComparable,A extends Accio
 	public abstract A escogeAccion();
 	//public abstract Apuesta<AccionJuego> escogeAccion();
 
+
+	public Jugador<C> getJugador() {
+		return jugador;
+	}
+
+
+	public void setJugador(Jugador<C> jugador) {
+		this.jugador = jugador;
+	}
+
+
+	public JuegoCartas getJuegoCartas() {
+		return juegoCartas;
+	}
+
+
+	public void setJuegoCartas(JuegoCartas juegoCartas) {
+		this.juegoCartas = juegoCartas;
+	}
+
+	
+	
 	
 }
