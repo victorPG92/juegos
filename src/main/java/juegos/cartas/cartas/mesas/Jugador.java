@@ -15,10 +15,10 @@ import juegos.cartas.cartas.juego.Mano;
  * @author victor
  *
  */
-public class Jugador
+public class Jugador<C extends ICartaComparable>
 {
 	private String id;
-	private List<ICartaComparable> cartas;	
+	private List<C> cartas;	
 	private Mano mano;	
 	private int fichas;
 	
@@ -33,11 +33,11 @@ public class Jugador
 		this.id = id;
 	}
 
-	public final List<ICartaComparable> getCartas() {
+	public final List<C> getCartas() {
 		return cartas;
 	}
 
-	public final void setCartas(List<ICartaComparable> cartas) {
+	public final void setCartas(List<C> cartas) {
 		this.cartas = cartas;
 	}
 

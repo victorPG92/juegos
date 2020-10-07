@@ -6,7 +6,7 @@ package juegos.cartas.cartas.juego;
  * @author victor
  *
  */
-public interface AccionJugador 
+public interface AccionJugador extends AccionJuego
 {
 	
 	public void actua();
