@@ -11,6 +11,13 @@ public class Apuesta <A extends AccionJuego> implements AccionJuego
 	A accion;
 	int fichas=0;//apuesta inicial es 0
 	
+	
+	
+	public Apuesta(A accion) {
+		super();
+		this.accion = accion;
+	}
+
 	public Apuesta(A accion, int fichas) {
 		super();
 		this.accion = accion;
