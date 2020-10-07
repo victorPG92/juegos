@@ -23,6 +23,17 @@ public class Jugador<C extends ICartaComparable>
 	private int fichas;
 	
 	
+	public void apostar(int fichasApostadas)
+	{
+		this.fichas-=fichasApostadas;
+	}
+	
+	public void recibirFichas(int fichasRecibidas)
+	{
+		this.fichas+=fichasRecibidas;
+
+	}
+	
 	
 
 	public final String getId() {

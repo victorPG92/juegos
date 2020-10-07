@@ -3,22 +3,24 @@ package juegos.cartas.cartas.mesas;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Mesa 
+import juegos.cartas.cartas.cartas.ICartaComparable;
+
+public class Mesa<C extends ICartaComparable> 
 {
-	List<Jugador> jugadores= new ArrayList<>();
+	List<Jugador<C>> jugadores= new ArrayList<>();
 	
-	List<CeldaCartaMesa> cartasComunes= new ArrayList<>();
+	List<CeldaCartaMesa<C>> cartasComunes= new ArrayList<>();
 	
 	
 	
 	
 
-	public Mesa(List<Jugador> jugadores) {
+	public Mesa(List<Jugador<C>> jugadores) {
 		super();
 		this.jugadores = jugadores;
 	}
 
-	public final List<Jugador> getJugadores() {
+	public final List<Jugador<C>> getJugadores() {
 		return jugadores;
 	}
 
@@ -27,11 +29,11 @@ public class Mesa
 		this.jugadores = jugadores;
 	}*/
 
-	public final List<CeldaCartaMesa> getCartasComunes() {
+	public final List<CeldaCartaMesa<C>> getCartasComunes() {
 		return cartasComunes;
 	}
 
-	public final void setCartasComunes(List<CeldaCartaMesa> cartasComunes) {
+	public final void setCartasComunes(List<CeldaCartaMesa<C>> cartasComunes) {
 		this.cartasComunes = cartasComunes;
 	}
 	

@@ -8,23 +8,23 @@ import juegos.cartas.cartas.cartas.ICartaComparable;
  * @author victor
  *
  */
-public class CeldaCartaMesa 
+public class CeldaCartaMesa <C extends ICartaComparable>
 {
 	
-	private ICartaComparable carta;
+	private C carta;
 	private boolean bocaArriba;
 	
-	public CeldaCartaMesa(ICartaComparable carta, boolean bocaArriba) {
+	public CeldaCartaMesa(C carta, boolean bocaArriba) {
 		super();
 		this.carta = carta;
 		this.bocaArriba = bocaArriba;
 	}
 
-	public final ICartaComparable getCarta() {
+	public final C getCarta() {
 		return carta;
 	}
 
-	public final void setCarta(ICartaComparable carta) {
+	public final void setCarta(C carta) {
 		this.carta = carta;
 	}
 
