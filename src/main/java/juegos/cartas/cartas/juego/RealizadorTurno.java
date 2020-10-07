@@ -25,4 +25,7 @@ public abstract class RealizadorTurno<C extends ICartaComparable,A extends Accio
 	 * @return
 	 */
 	public abstract A escogeAccion();
+	//public abstract Apuesta<AccionJuego> escogeAccion();
+
+	
 }
