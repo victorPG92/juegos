@@ -25,7 +25,7 @@ public class CrupierMazoAleatoria<C extends ICartaComparable> extends CrupierMaz
 	}
 
 	@Override
-	public ICartaComparable reparteCarta() {
+	public C reparteCarta() {
 		return mazo.dameCartaAleatoria();
 	}
 	

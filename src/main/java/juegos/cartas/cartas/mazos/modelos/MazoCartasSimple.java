@@ -12,8 +12,8 @@ import juegos.cartas.cartas.cartas.ICartaComparable;
  *
  * @param <C>
  */
-public interface MazoCartasSimple <C extends ICartaComparable>{
-
+public interface MazoCartasSimple <C extends ICartaComparable> //extends MazoCartasExtraccionConcreta<C>{
+{
 	/**
 	 * Devuelve una carta aleatoria
 	 * @return

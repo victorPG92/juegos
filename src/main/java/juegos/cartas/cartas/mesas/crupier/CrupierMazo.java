@@ -15,7 +15,7 @@ import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
  *
  * @param <C>
  */
-public abstract class CrupierMazo<C extends ICartaComparable> implements Crupier
+public abstract class CrupierMazo<C extends ICartaComparable> implements Crupier<C>
 {
 	
 	MazoCartasSimple<C> mazo;
@@ -28,9 +28,9 @@ public abstract class CrupierMazo<C extends ICartaComparable> implements Crupier
 	
 
 	@Override
-	public List<ICartaComparable> reparteNCartas(int numCartas) {
+	public List<C> reparteNCartas(int numCartas) {
 		
-		List<ICartaComparable> list= new ArrayList<>();
+		List<C> list= new ArrayList<>();
 		
 		for (int i = 0; i < numCartas; i++) {
 			list.add(reparteCarta());

@@ -1,9 +1,14 @@
 package juegos.cartas.cartas.mazos.impl.gen;
 
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Stack;
+
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
+import juegos.cartas.cartas.mazos.modelos.MazoCartasDeshacer;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
@@ -22,7 +27,8 @@ implements
 MazoCartasSimple<C>,
 MazoCartasExtraccionConcreta<C>, 
 MazoConsulta<C>,
-MazoInsercion<C>
+MazoInsercion<C>,
+MazoCartasDeshacer<C>
 {
 
 	protected Dominio<P> dominioPalos;
@@ -34,6 +40,10 @@ MazoInsercion<C>
 	protected  int NUM_CARTAS;//= 13;
 	
 	protected SupplierNewCarta<C, N, P> supplierNewCarta;
+	
+	protected Deque<C> pilaCartasUsadas= new LinkedList<>();
+	//protected Stack<C> pilaCartasUsadas= new Stack();
+	
 	
 	public MazoGen(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P> domComp)
 	{
@@ -84,6 +94,24 @@ MazoInsercion<C>
 		return dominioCompuesto;
 	}
 	
+	/**
+	 * Apila carta para deshacer el movimiento
+	 * @param cartaRepartida
+	 */
+	public void apilaCartaRepartida(C cartaRepartida)
+	{
+		pilaCartasUsadas.push(cartaRepartida);
+	}
 	
+	@Override
+	public C ultimaCartaRepartida() {
+		return pilaCartasUsadas.peek();
+	}
+	
+	@Override
+	public void deshacerReparto() {
+		insertaCarta(ultimaCartaRepartida());
+		
+	}
 	
 }

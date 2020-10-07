@@ -9,20 +9,20 @@ import juegos.cartas.cartas.cartas.ICartaComparable;
  * @author victor
  *
  */
-public interface Crupier 
+public interface Crupier<C extends ICartaComparable>
 {
 	/**
 	 * reparte una carta
 	 * @return
 	 */
-	public ICartaComparable reparteCarta();
+	public C reparteCarta();
 	
 	/**
 	 * Reparte varias cartas seguidas
 	 * @param numCartas
 	 * @return
 	 */
-	public List<ICartaComparable> reparteNCartas(int numCartas);
+	public List<C> reparteNCartas(int numCartas);
 
 	
 

@@ -4,14 +4,14 @@ import java.util.List;
 
 import juegos.cartas.cartas.cartas.ICartaComparable;
 
-public interface CrupierMesa extends Crupier
+public interface CrupierMesa<C extends ICartaComparable> extends Crupier<C>
 {
 	
 	
 
-	public List<ICartaComparable>  reparteCartasJugador();
+	public List<C>  reparteCartasJugador();
 	
-	public List<ICartaComparable>  reparteCartasMesa();
+	public List<C>  reparteCartasMesa();
 	
 	
 	

@@ -10,7 +10,7 @@ import juegos.cartas.cartas.cartas.ICartaComparable;
  * @author victor
  *
  */
-public interface MazoCartasExtraccionConcreta<C extends ICartaComparable>
+public interface MazoCartasExtraccionConcreta<C extends ICartaComparable> extends MazoCartasSimple<C>
 {
 	
 	/**

@@ -11,7 +11,8 @@ import juegos.cartas.cartas.cartas.ICartaComparable;
  *
  * @param <C>
  */
-public interface MazoInsercion <C extends ICartaComparable>{
+public interface MazoInsercion <C extends ICartaComparable> extends MazoCartasSimple<C>
+{
 
 	/**
 	 * Mete una carta concreta en el mazo
