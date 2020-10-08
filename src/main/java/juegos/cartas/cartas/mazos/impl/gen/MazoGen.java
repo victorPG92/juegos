@@ -2,7 +2,6 @@ package juegos.cartas.cartas.mazos.impl.gen;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Stack;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;

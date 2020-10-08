@@ -1,6 +1,5 @@
 package juegos.cartas.cartas.mesas;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import juegos.cartas.cartas.cartas.ICartaComparable;

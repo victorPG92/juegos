@@ -1,8 +1,5 @@
 package juegos.cartas.cartas.mesas.crupier;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import juegos.cartas.cartas.cartas.ICartaComparable;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
 

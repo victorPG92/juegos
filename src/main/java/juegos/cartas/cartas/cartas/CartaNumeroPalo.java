@@ -1,7 +1,5 @@
 package juegos.cartas.cartas.cartas;
 
-import java.util.Comparator;
-
 /**
  * Carta con 2 caracteristicas, valor y palo
  * los cuales pueden son parametrizables

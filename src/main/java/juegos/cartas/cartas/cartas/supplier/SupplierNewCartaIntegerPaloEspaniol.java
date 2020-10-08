@@ -2,7 +2,6 @@ package juegos.cartas.cartas.cartas.supplier;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
-import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
 
 /**
  * Provee una nueva carta con numero y palo frances con enumerado

@@ -5,7 +5,6 @@ import java.util.Queue;
 import juegos.cartas.cartas.cartas.ICartaComparable;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasDeshacer;
 import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
-import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
 
 /**
  * Crupier que saca las cartas que se le indican

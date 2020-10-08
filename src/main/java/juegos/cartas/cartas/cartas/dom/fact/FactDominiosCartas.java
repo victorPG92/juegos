@@ -3,8 +3,6 @@ package juegos.cartas.cartas.cartas.dom.fact;
 import java.util.HashSet;
 import java.util.Set;
 
-import juegos.cartas.cartas.cartas.dom.alias.GetterByAlias;
-import juegos.cartas.cartas.cartas.dom.alias.GetterByAliasSimpleMap;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 
 /**
@@ -33,7 +31,7 @@ public class FactDominiosCartas
 	
 	public Dominio<String> getDominioPalosCartasEspaniolas()
 	{
-		return new Dominio(Set.of("oros","copas","espadas","bastos"),
+		return new Dominio<>(Set.of("oros","copas","espadas","bastos"),
 				new FactComparator<String>().creaComparadorDeComparable());
 		
 	}

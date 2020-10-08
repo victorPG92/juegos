@@ -14,8 +14,8 @@ implements ValoradorJugadores<C>
 	public Jugador<C> encontrarMejorJugada(Collection<Jugador<C>> jugadores)
 	{
 		Mano manoMejor= null;
-		Jugador jugadorMejor=null;
-		for(Jugador jugador: jugadores)
+		Jugador<C> jugadorMejor=null;
+		for(Jugador<C> jugador: jugadores)
 		{
 			if(manoMejor==null || jugador.getMano().compareTo(manoMejor)>=1)
 			{
