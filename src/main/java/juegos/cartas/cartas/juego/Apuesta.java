@@ -40,7 +40,10 @@ public class Apuesta <A extends AccionJuego> implements AccionJuego
 		this.fichas = fichas;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return accion.toString()+(fichas>0?"("+fichas+")":"");
+	}
 	
 	
 

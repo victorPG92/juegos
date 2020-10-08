@@ -8,11 +8,11 @@ import juegos.cartas.cartas.mesas.Jugador;
  * @author victor
  *
  */
-public abstract class RealizadorTurno<C extends ICartaComparable,A extends AccionJuego> 
+public abstract class RealizadorTurno<C extends ICartaComparable,A extends AccionJuego,J extends JuegoCartas<F>,Jug extends Jugador<C>, F extends FaseJuego<F>> 
 {
 	
-	protected Jugador<C> jugador;
-	protected JuegoCartas juegoCartas;
+	protected Jug jugador;
+	protected J juegoCartas;
 	
 	/**
 	 * Realiza el turno de la manera que sea
@@ -33,17 +33,17 @@ public abstract class RealizadorTurno<C extends ICartaComparable,A extends Accio
 	}
 
 
-	public void setJugador(Jugador<C> jugador) {
+	public void setJugador(Jug jugador) {
 		this.jugador = jugador;
 	}
 
 
-	public JuegoCartas getJuegoCartas() {
+	public J getJuegoCartas() {
 		return juegoCartas;
 	}
 
 
-	public void setJuegoCartas(JuegoCartas juegoCartas) {
+	public void setJuegoCartas(J juegoCartas) {
 		this.juegoCartas = juegoCartas;
 	}
 

@@ -1,6 +1,6 @@
 package juegos.cartas.cartas.juego;
 
-public interface JuegoCartas 
+public interface JuegoCartas <F>
 {
 	
 	public void faseInicializacion();
@@ -8,5 +8,7 @@ public interface JuegoCartas
 	public void faseRondas();
 	
 	public void faseValoracionManos();
+	
+	public FaseJuego<F> getFase();
 
 }
