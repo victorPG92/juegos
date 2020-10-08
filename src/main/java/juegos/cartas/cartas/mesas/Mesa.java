@@ -11,9 +11,9 @@ import juegos.cartas.cartas.cartas.ICartaComparable;
  *
  * @param <C>
  */
-public class Mesa<C extends ICartaComparable> 
+public class Mesa<C extends ICartaComparable, J extends Jugador<C>> 
 {
-	List<Jugador<C>> jugadores= new ArrayList<>();
+	List<J> jugadores= new ArrayList<>();
 	
 	List<CeldaCartaMesa<C>> cartasComunes= new ArrayList<>();
 	
@@ -21,12 +21,12 @@ public class Mesa<C extends ICartaComparable>
 	
 	
 
-	public Mesa(List<Jugador<C>> jugadores) {
+	public Mesa(List<J> jugadores) {
 		super();
 		this.jugadores = jugadores;
 	}
 
-	public final List<Jugador<C>> getJugadores() {
+	public final List<J> getJugadores() {
 		return jugadores;
 	}
 

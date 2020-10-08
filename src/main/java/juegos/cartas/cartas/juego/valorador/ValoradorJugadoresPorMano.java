@@ -1,21 +1,29 @@
-package juegos.cartas.cartas.juego;
+package juegos.cartas.cartas.juego.valorador;
 
 import java.util.Collection;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import juegos.cartas.cartas.cartas.ICartaComparable;
+import juegos.cartas.cartas.juego.Mano;
 import juegos.cartas.cartas.mesas.Jugador;
 
-public class ValoradorJugadoresSimple <C extends ICartaComparable>
-implements ValoradorJugadores<C>
+/**
+ * Valora jugadores segun la mano y los ordena de ese modo
+ * @author victor
+ *
+ * @param <C>
+ * @param <J>
+ */
+public class ValoradorJugadoresPorMano <C extends ICartaComparable,J extends Jugador<C>>
+implements ValoradorJugadores<C,J>
 {
 	
-	public Jugador<C> encontrarMejorJugada(Collection<Jugador<C>> jugadores)
+	public J encontrarMejorJugador(Collection<J> jugadores)
 	{
 		Mano manoMejor= null;
-		Jugador<C> jugadorMejor=null;
-		for(Jugador<C> jugador: jugadores)
+		J jugadorMejor=null;
+		for(J jugador: jugadores)
 		{
 			if(manoMejor==null || jugador.getMano().compareTo(manoMejor)>=1)
 			{
@@ -30,7 +38,7 @@ implements ValoradorJugadores<C>
 	
 	public SortedSet<Jugador<C>> valorarJugadores(Collection<Jugador<C>> jugadores)
 	{
-		SortedSet<Jugador<C>> marcador=new TreeSet<Jugador<C>>((j1,j2)-> j1.getMano().compareTo(j2.getMano()));
+		SortedSet<Jugador<C>> marcador=new TreeSet<>((j1,j2)-> j1.getMano().compareTo(j2.getMano()));
 		marcador.addAll(jugadores);
 		return marcador;//.first();//last();
 	}
