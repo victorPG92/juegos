@@ -18,7 +18,7 @@ public class FactDominiosCartasEnum
 	
 	public Dominio<Integer> getDominioNumericoCartasEspaniolas()
 	{
-		FactComparator<Integer> fComp= new FactComparator<>();
+		FactComparator fComp= new FactComparator();
 		Set<Integer> valores= new HashSet<>();
 		for(int i=1;i<8;i++)
 			valores.add(i);
@@ -34,7 +34,7 @@ public class FactDominiosCartasEnum
 	public Dominio<PaloEspaniol> getDominioPalosCartasEspaniolas()
 	{
 		return new Dominio<>(Set.of(PaloEspaniol.OROS, PaloEspaniol.COPAS, PaloEspaniol.ESPADAS, PaloEspaniol.BASTOS),
-				new FactComparator<PaloEspaniol>().creaComparadorDeComparable());
+				new FactComparator().creaComparadorDeComparable());
 		
 	}
 
@@ -44,12 +44,12 @@ public class FactDominiosCartasEnum
 				PaloFrances.CORAZONES,
 				PaloFrances.TREBOLES),
 				
-				new FactComparator<PaloFrances>().creaComparadorDeComparable());
+				new FactComparator().creaComparadorDeComparable());
 		
 	}
 
 	public Dominio<Integer> getDominioNumericoCartasFrancesa() {
-		FactComparator<Integer> fComp= new FactComparator<>();
+		FactComparator fComp= new FactComparator();
 		Set<Integer> valores= new HashSet<>();
 		for(int i=1;i<14;i++)
 			valores.add(i);

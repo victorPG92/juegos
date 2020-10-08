@@ -14,6 +14,15 @@ public abstract class RealizadorTurno<C extends ICartaComparable,A extends Accio
 	protected Jug jugador;
 	protected J juegoCartas;
 	
+	
+	
+	public RealizadorTurno(Jug jugador, J juegoCartas) {
+		super();
+		this.jugador = jugador;
+		this.juegoCartas = juegoCartas;
+	}
+
+
 	/**
 	 * Realiza el turno de la manera que sea
 	 */

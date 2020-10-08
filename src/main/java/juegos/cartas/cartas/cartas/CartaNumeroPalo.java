@@ -40,7 +40,11 @@ public class CartaNumeroPalo<N,P> implements ICartaComparable
 	
 	
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) 
+	{
+		if(!(obj instanceof CartaNumeroPalo))
+			return false;
+		
 		CartaNumeroPalo<N, P> carta= (CartaNumeroPalo<N, P>) obj;
 		 
 		boolean r= palo.equals(carta.palo);

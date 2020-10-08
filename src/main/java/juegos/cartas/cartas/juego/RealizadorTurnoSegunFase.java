@@ -19,6 +19,10 @@ F extends FaseJuego<F>
 >
 extends RealizadorTurno<C,A,J,Jug,F>
 {
+	public RealizadorTurnoSegunFase(Jug jugador, J juegoCartas) {
+		super(jugador, juegoCartas);
+	}
+
 	Map<F, RealizadorTurno<C,A,J,Jug,F>> realizadoresSegunFase= new HashMap<>();
 
 	/**

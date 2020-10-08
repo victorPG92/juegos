@@ -15,13 +15,13 @@ import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 
 public class MazoTest 
 {
-	MazoGen mazo;
+	MazoGen<CartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances> mazo;
 	
 	//@BeforeAll
 	@BeforeEach
 	public void setUp() 
 	{
-		mazo= new FactMazoConcretoEnums().crearBarajaFrancesa();
+		mazo = new FactMazoConcretoEnums().crearBarajaFrancesa();
 	}
 	
 	
@@ -44,7 +44,7 @@ e.printStackTrace();		}
 	public void testDameNCartaAleatoria() throws Exception 
 	{
 		int n=2;
-		List<ICartaComparable> cartas = mazo.dameNCartasAleatoria(n);
+		 List<CartaNumeroPalo<Integer, PaloFrances>> cartas = mazo.dameNCartasAleatoria(n);
 		
 		Assert.assertNotNull(cartas);
 		
@@ -60,8 +60,8 @@ e.printStackTrace();		}
 	{
 		
 		System.out.println("empezando el test carta concreta");
-		ICartaComparable cartaConcreta= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
-		ICartaComparable carta=mazo.dameCartaConcreta(cartaConcreta);
+		CartaNumeroPalo<Integer,PaloFrances> cartaConcreta= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
+		CartaNumeroPalo<Integer,PaloFrances> carta = mazo.dameCartaConcreta(cartaConcreta);
 		
 		Assert.assertNotNull(carta);
 	
@@ -75,7 +75,7 @@ e.printStackTrace();		}
 	@Test
 	public void testDameNCartasConcretas() throws Exception 
 	{
-		int n=2;
+		//int n=2;
 		CartaNumeroPalo<Integer,PaloFrances> cartaConcreta1= new CartaNumeroPalo<Integer,PaloFrances>(1,PaloFrances.CORAZONES);
 
 		CartaNumeroPalo<Integer,PaloFrances> cartaConcreta2= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);

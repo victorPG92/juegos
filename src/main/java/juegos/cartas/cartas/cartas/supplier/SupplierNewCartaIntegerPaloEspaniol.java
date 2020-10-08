@@ -21,8 +21,7 @@ public class SupplierNewCartaIntegerPaloEspaniol implements SupplierNewCarta<Car
 
 	@Override
 	public CartaNumeroPalo<Integer, PaloEspaniol>[][] creaMatriz(Integer numero, PaloEspaniol palo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new CartaNumeroPalo[numero][palo.values().length];
 	}
 
 	@Override
