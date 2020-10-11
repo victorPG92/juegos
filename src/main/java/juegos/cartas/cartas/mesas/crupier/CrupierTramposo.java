@@ -3,8 +3,8 @@ package juegos.cartas.cartas.mesas.crupier;
 import java.util.Queue;
 
 import juegos.cartas.cartas.cartas.ICartaComparable;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasDeshacer;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasDeshacer;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
 
 /**
  * Crupier que saca las cartas que se le indican

@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.mazos.modelos;
+package juegos.cartas.cartas.mazos.modelos.func;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package juegos.cartas.cartas.cartas.supplier;
 
-import juegos.cartas.cartas.cartas.CartaNumeroPalo;
+import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 
 /**
  * Provee una nueva carta con numero y palo
@@ -10,7 +10,7 @@ import juegos.cartas.cartas.cartas.CartaNumeroPalo;
  * @param <N>
  * @param <P>
  */
-public interface SupplierNewCarta <C extends CartaNumeroPalo<N, P>,N,P>
+public interface SupplierNewCarta <C extends ICartaNumeroPalo<N, P>,N,P>
 {
 
 	public C creaNuevaCarta(N numero, P palo);

@@ -3,7 +3,7 @@ package juegos.cartas.cartas.juego.analisis;
 import java.util.ArrayList;
 import java.util.List;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.juego.Mano;
 import juegos.cartas.cartas.utils.Combinaciones;
 
@@ -41,7 +41,7 @@ import juegos.cartas.cartas.utils.Combinaciones;
 		 * Busco la mejor mano dado unas cartas
 		 * @param cartas
 		 */
-		public void buscar(List<Carta> cartas)
+		public void buscar(List<CartaFrancesaOld> cartas)
 		{
 			//Combinaciones cmb = new Combinaciones(7, 5);
 			Combinaciones cmb = new Combinaciones(cartas.size(), 5);
@@ -50,7 +50,7 @@ import juegos.cartas.cartas.utils.Combinaciones;
 			
 			for(ArrayList<Integer> indices : combinaciones)
 			{
-				List<Carta> manoTemp = new  ArrayList<Carta >();
+				List<CartaFrancesaOld> manoTemp = new  ArrayList<CartaFrancesaOld >();
 				for(Integer i : indices)
 					manoTemp.add(cartas.get(i));
 

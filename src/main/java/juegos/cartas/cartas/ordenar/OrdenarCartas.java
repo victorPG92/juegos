@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 
 
 /**
@@ -22,15 +22,15 @@ public class OrdenarCartas
 	 * @param mano
 	 * @return
 	 */
-	public List<Carta> ordenarPorNumero( List<Carta> mano)
+	public List<CartaFrancesaOld> ordenarPorNumero( List<CartaFrancesaOld> mano)
 	{
-		ArrayList<Carta> a = new ArrayList<>();
+		ArrayList<CartaFrancesaOld> a = new ArrayList<>();
 		a.add(mano.get(0));
 		
 		
 		for(int j=1;j<mano.size();j++)
 		{
-			Carta elem = mano.get(j);
+			CartaFrancesaOld elem = mano.get(j);
 			int i=0;
 			while(i < a.size() && elem.compareTo(a.get(i))<0)
 			{
@@ -44,11 +44,11 @@ public class OrdenarCartas
 	}
 	
 	
-	public List<Carta> ordenarPorNumeroAscendente( List<Carta> l)
+	public List<CartaFrancesaOld> ordenarPorNumeroAscendente( List<CartaFrancesaOld> l)
 	{
-		TreeSet<Carta> ts= new TreeSet<>();
+		TreeSet<CartaFrancesaOld> ts= new TreeSet<>();
 		ts.addAll(l);
-		ArrayList<Carta> r = new ArrayList<>();
+		ArrayList<CartaFrancesaOld> r = new ArrayList<>();
 		r.addAll(ts); 
 		return r;
 	}
@@ -58,15 +58,15 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public List<Carta> ordenarPorColor( List<Carta> l)
+	public List<CartaFrancesaOld> ordenarPorColor( List<CartaFrancesaOld> l)
 	{
-		ArrayList<Carta> a = new ArrayList<>();
+		ArrayList<CartaFrancesaOld> a = new ArrayList<>();
 		a.add(l.get(0));
 		
 		
 		for(int j=1;j<l.size();j++)
 		{
-			Carta elem = l.get(j);
+			CartaFrancesaOld elem = l.get(j);
 			int i=0;
 			while(i < a.size() && elem.getPalo().compareTo(a.get(i).getPalo())<0)
 			{
@@ -85,18 +85,18 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public List<Carta> ordenarPorEscalera( List<Carta> l)
+	public List<CartaFrancesaOld> ordenarPorEscalera( List<CartaFrancesaOld> l)
 	{
-		List<Carta> a = ordenarPorNumero(l);
-		ArrayList<Carta> r = new ArrayList<>();
+		List<CartaFrancesaOld> a = ordenarPorNumero(l);
+		ArrayList<CartaFrancesaOld> r = new ArrayList<>();
 		 
 		
 		for(int i=0;i<a.size()-1;i++)
 		{
 			int dif=0;
 			
-			Carta e1 = a.get(i);
-			Carta e2 = a.get(i+1);
+			CartaFrancesaOld e1 = a.get(i);
+			CartaFrancesaOld e2 = a.get(i+1);
 			
 			dif = e2.getNumero()-e1.getNumero();
 			
@@ -128,19 +128,19 @@ public class OrdenarCartas
 		}
 		
 		
-		for(Carta c : a)
+		for(CartaFrancesaOld c : a)
 		{
 			if(!r.contains(c)) r.add(c);
 		}
 		return r;
 	}
 	
-	public List<Carta> ordenarPorIguales( List<Carta> l)
+	public List<CartaFrancesaOld> ordenarPorIguales( List<CartaFrancesaOld> l)
 	{
 		return ordenarPorIguales2(l);
 	}
 	
-	public List<Carta> ordenarPorIguales1( List<Carta> l)
+	public List<CartaFrancesaOld> ordenarPorIguales1( List<CartaFrancesaOld> l)
 	{
 		/*ArrayList<Carta> a = ordenarPorNumero(l);
 		
@@ -166,14 +166,14 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public List<Carta> ordenarPorIguales2( List<Carta> l)
+	public List<CartaFrancesaOld> ordenarPorIguales2( List<CartaFrancesaOld> l)
 	{
 		
 		
-		ArrayList<Carta> r = new ArrayList<>();
-		List<Carta> aux = new ArrayList<>();
+		ArrayList<CartaFrancesaOld> r = new ArrayList<>();
+		List<CartaFrancesaOld> aux = new ArrayList<>();
 		
-		for(Carta c : l)
+		for(CartaFrancesaOld c : l)
 		{
 			aux.add(c);
 		}
@@ -181,7 +181,7 @@ public class OrdenarCartas
 		
 		HashMap<Integer,Integer> m = new  HashMap<>();
 		
-		for(Carta c : l)
+		for(CartaFrancesaOld c : l)
 		{
 			int i = c.getNumero();
 			int v= 1;
@@ -195,8 +195,8 @@ public class OrdenarCartas
 			int v= m.get(i);
 			if(v > max) max=v;
 			
-			ArrayList<Carta> coinc= new ArrayList<>();
-			for(Carta c : l)
+			ArrayList<CartaFrancesaOld> coinc= new ArrayList<>();
+			for(CartaFrancesaOld c : l)
 			{
 				if(c.getNumero()==i) coinc.add(c);
 				
@@ -205,7 +205,7 @@ public class OrdenarCartas
 			{
 				if(max>2) // como mucho ==3
 				{
-					for(Carta c :coinc)
+					for(CartaFrancesaOld c :coinc)
 					{
 						r.add(3,c);
 						aux.remove(c);
@@ -213,7 +213,7 @@ public class OrdenarCartas
 				}
 				else
 				{
-					for(Carta c :coinc)
+					for(CartaFrancesaOld c :coinc)
 					{
 						r.add(0,c);
 						aux.remove(c);
@@ -224,7 +224,7 @@ public class OrdenarCartas
 			else if(v>2 )
 			{
 				
-				for(Carta c :coinc)
+				for(CartaFrancesaOld c :coinc)
 				{
 					r.add(0,c);
 					aux.remove(c);
@@ -238,7 +238,7 @@ public class OrdenarCartas
 			
 		}
 		
-		for(Carta c:aux)
+		for(CartaFrancesaOld c:aux)
 			r.add(c);
 		
 		return r;

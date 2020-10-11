@@ -6,12 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
-import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
-import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
+import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoInsercion;
 
 /**
  * Mazo peor.
@@ -23,14 +23,14 @@ import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
  *
  */
 public class MazoOptListaEnlazadaDesOrdenada implements 
-MazoCartasSimple<Carta>,
-MazoCartasExtraccionConcreta<Carta>, 
-MazoConsulta<Carta>,
-MazoInsercion<Carta>
+MazoCartasSimple<CartaFrancesaOld>,
+MazoCartasExtraccionConcreta<CartaFrancesaOld>, 
+MazoConsulta<CartaFrancesaOld>,
+MazoInsercion<CartaFrancesaOld>
 {
-	private LinkedList<Carta> mazo;
+	private LinkedList<CartaFrancesaOld> mazo;
 	
-	private List<Carta> cartasUsadas;
+	private List<CartaFrancesaOld> cartasUsadas;
 	
 	
 	Random r= new Random(System.currentTimeMillis());
@@ -44,7 +44,7 @@ MazoInsercion<Carta>
 		for(PaloFrances p : PaloFrances.values())
 		{
 			for(int i=1;i<14;i++)//cambiado
-				mazo.add(new Carta(i,p));
+				mazo.add(new CartaFrancesaOld(i,p));
 		}
 
 		
@@ -55,10 +55,10 @@ MazoInsercion<Carta>
 	/**
 	 * 
 	 */
-	public Carta dameCartaAleatoria()
+	public CartaFrancesaOld dameCartaAleatoria()
 	{
 		
-		Carta carta = mazo.remove(0);
+		CartaFrancesaOld carta = mazo.remove(0);
 		cartasUsadas.add(carta);
 		return carta;
 		
@@ -67,10 +67,10 @@ MazoInsercion<Carta>
 
 
 	@Override
-	public List<Carta> dameNCartasAleatoria(int n) 
+	public List<CartaFrancesaOld> dameNCartasAleatoria(int n) 
 	{
 		
-		 ArrayList<Carta> a = new  ArrayList<>();
+		 ArrayList<CartaFrancesaOld> a = new  ArrayList<>();
 		 for(int i=0;i<n;i++)
 			 a.add(dameCartaAleatoria());
 		
@@ -81,7 +81,7 @@ MazoInsercion<Carta>
 
 
 	@Override
-	public void insertaCarta(Carta c)
+	public void insertaCarta(CartaFrancesaOld c)
 	{
 		mazo.add(c);
 		
@@ -90,7 +90,7 @@ MazoInsercion<Carta>
 
 
 	@Override
-	public void insertaCartas(List<Carta> l)
+	public void insertaCartas(List<CartaFrancesaOld> l)
 	{
 		mazo.addAll(l);
 		/*
@@ -106,7 +106,7 @@ MazoInsercion<Carta>
 	 * intentar coste log n - busqqueda binaria
 	 */
 	@Override
-	public Carta dameCartaConcreta(Carta cartaConcreta)
+	public CartaFrancesaOld dameCartaConcreta(CartaFrancesaOld cartaConcreta)
 	{		
 		
 		mazo.remove(cartaConcreta);
@@ -133,7 +133,7 @@ MazoInsercion<Carta>
 	 * Suponer que las cartas existen 
 	 */
 	@Override
-	public List<Carta> dameNCartasConcretas(List<Carta> cartasConcretas) {
+	public List<CartaFrancesaOld> dameNCartasConcretas(List<CartaFrancesaOld> cartasConcretas) {
 		/*List<Carta> cartas= new ArrayList<>();
 		for (Carta carta : cartasConcretas) {
 			cartas.add(dameCartaConcreta(carta));
@@ -155,7 +155,7 @@ MazoInsercion<Carta>
 
 
 	@Override
-	public boolean perteneceCartaAMazo(Carta c) {
+	public boolean perteneceCartaAMazo(CartaFrancesaOld c) {
 		return mazo.contains(c);
 	}
 

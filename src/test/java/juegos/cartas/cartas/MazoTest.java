@@ -9,13 +9,14 @@ import org.junit.jupiter.api.Test;
 
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.ICartaComparable;
+import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.mazos.fact.FactMazoConcretoEnums;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 
 public class MazoTest 
 {
-	MazoGen<CartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances> mazo;
+	MazoGen<ICartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances> mazo;
 	
 	//@BeforeAll
 	@BeforeEach
@@ -44,7 +45,7 @@ e.printStackTrace();		}
 	public void testDameNCartaAleatoria() throws Exception 
 	{
 		int n=2;
-		 List<CartaNumeroPalo<Integer, PaloFrances>> cartas = mazo.dameNCartasAleatoria(n);
+		 List<ICartaNumeroPalo<Integer, PaloFrances>> cartas = mazo.dameNCartasAleatoria(n);
 		
 		Assert.assertNotNull(cartas);
 		
@@ -60,8 +61,8 @@ e.printStackTrace();		}
 	{
 		
 		System.out.println("empezando el test carta concreta");
-		CartaNumeroPalo<Integer,PaloFrances> cartaConcreta= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
-		CartaNumeroPalo<Integer,PaloFrances> carta = mazo.dameCartaConcreta(cartaConcreta);
+		ICartaNumeroPalo<Integer,PaloFrances> cartaConcreta= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
+		ICartaNumeroPalo<Integer,PaloFrances> carta = mazo.dameCartaConcreta(cartaConcreta);
 		
 		Assert.assertNotNull(carta);
 	
@@ -76,17 +77,17 @@ e.printStackTrace();		}
 	public void testDameNCartasConcretas() throws Exception 
 	{
 		//int n=2;
-		CartaNumeroPalo<Integer,PaloFrances> cartaConcreta1= new CartaNumeroPalo<Integer,PaloFrances>(1,PaloFrances.CORAZONES);
+		ICartaNumeroPalo<Integer,PaloFrances> cartaConcreta1= new CartaNumeroPalo<Integer,PaloFrances>(1,PaloFrances.CORAZONES);
 
-		CartaNumeroPalo<Integer,PaloFrances> cartaConcreta2= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
+		ICartaNumeroPalo<Integer,PaloFrances> cartaConcreta2= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
 
-		List<CartaNumeroPalo<Integer,PaloFrances>> cartasConcretas= new ArrayList<>();
+		List<ICartaNumeroPalo<Integer,PaloFrances>> cartasConcretas= new ArrayList<>();
 		
 		cartasConcretas.add(cartaConcreta1);
 		cartasConcretas.add(cartaConcreta2);
 
 		
-		List<CartaNumeroPalo<Integer,PaloFrances>> cartas = mazo.dameNCartasConcretas(cartasConcretas);
+		List<ICartaNumeroPalo<Integer,PaloFrances>> cartas = mazo.dameNCartasConcretas(cartasConcretas);
 		
 		System.out.println("cartas nulas");
 		Assert.assertNotNull(cartas);
@@ -101,8 +102,8 @@ e.printStackTrace();		}
 		for (int i = 0; i < cartas.size(); i++)
 		{
 			
-			CartaNumeroPalo<Integer,PaloFrances> carta= cartas.get(i);
-			CartaNumeroPalo<Integer,PaloFrances> cartaConcreta= cartasConcretas.get(i);
+			ICartaNumeroPalo<Integer,PaloFrances> carta= cartas.get(i);
+			ICartaNumeroPalo<Integer,PaloFrances> cartaConcreta= cartasConcretas.get(i);
 			
 			System.out.println(carta + " == "+ cartaConcreta);
 			Assert.assertTrue(carta.equals(cartaConcreta));

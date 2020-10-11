@@ -7,12 +7,12 @@ import juegos.cartas.cartas.cartas.palos.PaloFrances;
  * @author victor
  *
  */
-public class Carta extends CartaNumeroPalo<Integer,PaloFrances> implements Comparable<Carta>
+public class CartaFrancesaOld extends CartaNumeroPalo<Integer,PaloFrances> implements Comparable<CartaFrancesaOld>
 {/*
 	private PaloFrances palo;
 	private int num;
 */
-	public Carta(int n , PaloFrances p)
+	public CartaFrancesaOld(int n , PaloFrances p)
 	{
 		super(n,p);
 	}
@@ -27,7 +27,7 @@ public class Carta extends CartaNumeroPalo<Integer,PaloFrances> implements Compa
 	}
 
 	@Override
-	public int compareTo(Carta o) 
+	public int compareTo(CartaFrancesaOld o) 
 	{
 		//Carta o= (Carta) i;
 		int n1=numero;
@@ -62,7 +62,7 @@ public class Carta extends CartaNumeroPalo<Integer,PaloFrances> implements Compa
 	{
 		try
 		{
-			Carta c = (Carta)o;
+			CartaFrancesaOld c = (CartaFrancesaOld)o;
 			return this.numero == c.numero && this.palo.equals(c.palo);
 		}
 		catch(Exception e)

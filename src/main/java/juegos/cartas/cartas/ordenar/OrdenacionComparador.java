@@ -3,16 +3,16 @@ package juegos.cartas.cartas.ordenar;
 import java.util.Comparator;
 import java.util.List;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 
 public class OrdenacionComparador implements OrdenacionCartas
 {
 
-	Comparator<Carta> comp;
+	Comparator<CartaFrancesaOld> comp;
 	
 	
 	
-	public OrdenacionComparador(Comparator<Carta> comp) {
+	public OrdenacionComparador(Comparator<CartaFrancesaOld> comp) {
 		super();
 		this.comp = comp;
 	}
@@ -20,7 +20,7 @@ public class OrdenacionComparador implements OrdenacionCartas
 
 
 	@Override
-	public List<Carta> ordenarCartas(List<Carta> cartas) {
+	public List<CartaFrancesaOld> ordenarCartas(List<CartaFrancesaOld> cartas) {
 		cartas.sort(comp);
 		return cartas;
 	}

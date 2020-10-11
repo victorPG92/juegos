@@ -4,17 +4,17 @@ import java.util.List;
 
 import org.junit.Assert;
 
-import juegos.cartas.cartas.cartas.CartaNumeroPalo;
+import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.fact.FactMazoConcreto;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
-import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
 
 public class CrearMazosEspanioles 
 {
 	
-	public static List<MazoGen<CartaNumeroPalo<Integer, String>,Integer,String>> creaListaMazosPruebas()
+	public static List<MazoGen<ICartaNumeroPalo<Integer, String>,Integer,String>> creaListaMazosPruebas()
 	{
 		FactMazoConcreto fm= new FactMazoConcreto(); 
 
@@ -31,19 +31,19 @@ public class CrearMazosEspanioles
 		
 		
 		
-		for(MazoGen<CartaNumeroPalo<Integer, String>,Integer,String> mazo: creaListaMazosPruebas())
+		for(MazoGen<ICartaNumeroPalo<Integer, String>,Integer,String> mazo: creaListaMazosPruebas())
 		{
-			MazoConsulta<CartaNumeroPalo<Integer, String>> mazoSimple=(MazoConsulta<CartaNumeroPalo<Integer, String>>) mazo;
+			MazoConsulta<ICartaNumeroPalo<Integer, String>> mazoSimple=(MazoConsulta<ICartaNumeroPalo<Integer, String>>) mazo;
 			
 			Dominio<String> domP = mazo.getDominioPalos();
 			Dominio<Integer> domV = mazo.getDominioValores();
-			SupplierNewCarta<CartaNumeroPalo<Integer, String>, Integer, String> supplier = mazo.getSupplierNewCarta();
+			SupplierNewCarta<ICartaNumeroPalo<Integer, String>, Integer, String> supplier = mazo.getSupplierNewCarta();
 			for(String palo:domP.getValues())
 			{
 				for(Integer num: domV.getValues())
 				{
 					
-					CartaNumeroPalo<Integer, String> carta=supplier.creaNuevaCarta(num, palo);
+					ICartaNumeroPalo<Integer, String> carta=supplier.creaNuevaCarta(num, palo);
 					boolean pertenece=mazoSimple.perteneceCartaAMazo(carta);
 	
 					System.out.println(carta + " " +pertenece  );

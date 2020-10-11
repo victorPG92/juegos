@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.mazos.modelos;
+package juegos.cartas.cartas.mazos.modelos.func;
 
 import juegos.cartas.cartas.cartas.ICartaComparable;
 

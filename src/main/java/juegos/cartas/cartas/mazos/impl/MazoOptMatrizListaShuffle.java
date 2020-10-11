@@ -6,12 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
-import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
-import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
+import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoInsercion;
 
 /**
  * matriz de cartas 
@@ -29,16 +29,16 @@ import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
  */
 public class MazoOptMatrizListaShuffle 
 implements 
-MazoCartasSimple<Carta>,
-MazoCartasExtraccionConcreta<Carta>, 
-MazoConsulta<Carta>,
-MazoInsercion<Carta>
+MazoCartasSimple<CartaFrancesaOld>,
+MazoCartasExtraccionConcreta<CartaFrancesaOld>, 
+MazoConsulta<CartaFrancesaOld>,
+MazoInsercion<CartaFrancesaOld>
 
 {
-	private Carta mazo[][];
+	private CartaFrancesaOld mazo[][];
 	private boolean seleccionada[][];
 
-	List<Carta> cartasDesordenadas;
+	List<CartaFrancesaOld> cartasDesordenadas;
 	
 	private static final  int NUM_PALOS=  PaloFrances.values().length;
 	private static final  int NUM_CARTAS= 13;
@@ -48,14 +48,14 @@ MazoInsercion<Carta>
 	
 	public MazoOptMatrizListaShuffle()
 	{
-		mazo =  new Carta[NUM_PALOS][NUM_CARTAS];
+		mazo =  new CartaFrancesaOld[NUM_PALOS][NUM_CARTAS];
 		seleccionada= new boolean[NUM_PALOS][NUM_CARTAS];
 		cartasDesordenadas= new LinkedList<>();
 		for(PaloFrances p : PaloFrances.values())
 		{
 			for(int i=0;i<NUM_CARTAS;i++)//cambiado
 			{
-				Carta carta=new Carta(i+1,p);
+				CartaFrancesaOld carta=new CartaFrancesaOld(i+1,p);
 				mazo[p.ordinal()][i]= carta;
 				cartasDesordenadas.add(carta);
 			}
@@ -72,9 +72,9 @@ MazoInsercion<Carta>
 	 * 2 aleatoriios y lugo acceso constante
 	 * @return carta aleatoria
 	 */
-	public Carta dameCartaAleatoria()
+	public CartaFrancesaOld dameCartaAleatoria()
 	{
-		 Carta cartaElegida=cartasDesordenadas.get(cartasDesordenadas.size()-1);
+		 CartaFrancesaOld cartaElegida=cartasDesordenadas.get(cartasDesordenadas.size()-1);
 		 cartasDesordenadas.remove(cartasDesordenadas.size()-1);
 		 
 		 seleccionada[cartaElegida.getPalo().ordinal()-1][cartaElegida.getNumero()-1]=true;
@@ -117,9 +117,9 @@ MazoInsercion<Carta>
 	 * Extrae n cartas del mazo
 	 * @return cartas aleatorias
 	 */
-	public List<Carta> dameNCartasAleatoria(int n)
+	public List<CartaFrancesaOld> dameNCartasAleatoria(int n)
 	{
-		 ArrayList<Carta> a = new  ArrayList<>();
+		 ArrayList<CartaFrancesaOld> a = new  ArrayList<>();
 		 for(int i=0;i<n;i++)
 			 a.add(dameCartaAleatoria());
 		
@@ -129,7 +129,7 @@ MazoInsercion<Carta>
 	
 
 	@Override
-	public void insertaCarta(Carta c) 
+	public void insertaCarta(CartaFrancesaOld c) 
 	{
 		int p = c.getPalo().ordinal();// Palo.values()[nPalo];
 		int n= c.getNumero()-1;
@@ -144,9 +144,9 @@ MazoInsercion<Carta>
 
 
 	@Override
-	public void insertaCartas(List<Carta> l) {
+	public void insertaCartas(List<CartaFrancesaOld> l) {
 
-		for(Carta c: l)
+		for(CartaFrancesaOld c: l)
 			insertaCarta(c);
 	}
 	
@@ -185,7 +185,7 @@ MazoInsercion<Carta>
 	 * @param c
 	 * @return
 	 */
-	public boolean perteneceCartaAMazo(Carta c)
+	public boolean perteneceCartaAMazo(CartaFrancesaOld c)
 	{
 		return !estaSeleccionada(c);//mazo.contains(c);
 	}
@@ -196,7 +196,7 @@ MazoInsercion<Carta>
 	/**
 	 * Coste constante
 	 */
-	public void seleccionarCarta(Carta c )
+	public void seleccionarCarta(CartaFrancesaOld c )
 	{
 		if(c==null) return ;
 		int n= c.getNumero()-1;
@@ -213,7 +213,7 @@ MazoInsercion<Carta>
 	/**
 	 * Coste constante
 	 */
-	public boolean estaSeleccionada(Carta c)
+	public boolean estaSeleccionada(CartaFrancesaOld c)
 	{
 		if(c==null) return false;
 		
@@ -241,7 +241,7 @@ MazoInsercion<Carta>
 /**
  * Coste constante
  */
-	public Carta dameCartaConcreta(Carta cartaConcreta) {
+	public CartaFrancesaOld dameCartaConcreta(CartaFrancesaOld cartaConcreta) {
 		if(cartaConcreta==null) 
 			return null;
 		
@@ -279,10 +279,10 @@ MazoInsercion<Carta>
 	/**
 	 * Coste lineal
 	 */
-	public List<Carta> dameNCartasConcretas(List<Carta> cartasConcretas) {
+	public List<CartaFrancesaOld> dameNCartasConcretas(List<CartaFrancesaOld> cartasConcretas) {
 		
-		List<Carta> cartas= new ArrayList<>();
-		for (Carta carta : cartasConcretas) {
+		List<CartaFrancesaOld> cartas= new ArrayList<>();
+		for (CartaFrancesaOld carta : cartasConcretas) {
 			cartas.add(dameCartaConcreta(carta));
 		}
 		return null;

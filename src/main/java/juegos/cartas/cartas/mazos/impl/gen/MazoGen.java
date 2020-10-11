@@ -3,15 +3,15 @@ package juegos.cartas.cartas.mazos.impl.gen;
 import java.util.Deque;
 import java.util.LinkedList;
 
-import juegos.cartas.cartas.cartas.CartaNumeroPalo;
+import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasDeshacer;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
-import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
-import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasDeshacer;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
+import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoInsercion;
 
 /**
  * Mazo padre que tiene las partes necesarias para controlar los dominios de las cartas y creador de cartas
@@ -21,7 +21,7 @@ import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
  * @param <N>
  * @param <P>
  */
-public abstract class MazoGen<C extends CartaNumeroPalo<N, P>,N,P> 
+public abstract class MazoGen<C extends ICartaNumeroPalo<N, P>,N,P> 
 implements
 MazoCartasSimple<C>,
 MazoCartasExtraccionConcreta<C>, 
@@ -33,7 +33,7 @@ MazoCartasDeshacer<C>
 	protected Dominio<P> dominioPalos;
 	protected Dominio<N> dominioValores;
 	
-	DominioValorPalo<N , P> dominioCompuesto;
+	DominioValorPalo<N , P,C> dominioCompuesto;
 	
 	protected  int NUM_PALOS;//=  Palo.values().length;
 	protected  int NUM_CARTAS;//= 13;
@@ -44,7 +44,7 @@ MazoCartasDeshacer<C>
 	//protected Stack<C> pilaCartasUsadas= new Stack();
 	
 	
-	public MazoGen(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P> domComp)
+	public MazoGen(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P,C> domComp)
 	{
 		
 		this(s, domComp.getDomPalo(),domComp.getDomValor());
@@ -89,7 +89,7 @@ MazoCartasDeshacer<C>
 		return supplierNewCarta;
 	}
 
-	public final DominioValorPalo<N, P> getDominioCompuesto() {
+	public final DominioValorPalo<N, P,C> getDominioCompuesto() {
 		return dominioCompuesto;
 	}
 	

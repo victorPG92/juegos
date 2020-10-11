@@ -2,7 +2,7 @@ package juegos.cartas.cartas.cartas.dom.dominios;
 
 import java.util.Comparator;
 
-import juegos.cartas.cartas.cartas.CartaNumeroPalo;
+import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.alias.ParToString;
 import juegos.cartas.cartas.cartas.dom.alias.ParToStringEsp;
 
@@ -17,13 +17,13 @@ import juegos.cartas.cartas.cartas.dom.alias.ParToStringEsp;
  * @param <V>
  * @param <P>
  */
-public class DominioValorPalo<V,P> //extends Comparable<V>,P>  
+public class DominioValorPalo<V,P, C extends ICartaNumeroPalo<V, P>> //extends Comparable<V>,P>  
 {
 	
 	private Dominio<V> domValor;
 	private Dominio<P> domPalo;
 	
-	private Comparator<CartaNumeroPalo<V, P>> comparadorCartasValoracion;
+	private Comparator<C> comparadorCartasValoracion;
 	
 	ParToString parToString= new ParToStringEsp();
 	
@@ -34,7 +34,7 @@ public class DominioValorPalo<V,P> //extends Comparable<V>,P>
 	}
 
 	public DominioValorPalo(Dominio<V> domValor, Dominio<P> domPalo,
-			Comparator<CartaNumeroPalo<V, P>> comparadorCartasValoracion) {
+			Comparator<C> comparadorCartasValoracion) {
 		super();
 		this.domValor = domValor;
 		this.domPalo = domPalo;
@@ -42,7 +42,7 @@ public class DominioValorPalo<V,P> //extends Comparable<V>,P>
 	}
 	
 	
-	public String toString(CartaNumeroPalo<V, P> carta)
+	public String toString(ICartaNumeroPalo<V, P> carta)
 	{
 		return parToString.toString(domValor.toString(carta.getNumero()),
 				domPalo.toString(carta.getPalo()));	
@@ -65,11 +65,11 @@ public class DominioValorPalo<V,P> //extends Comparable<V>,P>
 		this.domPalo = domPalo;
 	}
 
-	public final Comparator<CartaNumeroPalo<V, P>> getComparadorCartasValoracion() {
+	public final Comparator<C> getComparadorCartasValoracion() {
 		return comparadorCartasValoracion;
 	}
 
-	public final void setComparadorCartasValoracion(Comparator<CartaNumeroPalo<V, P>> comparadorCartasValoracion) {
+	public final void setComparadorCartasValoracion(Comparator<C> comparadorCartasValoracion) {
 		this.comparadorCartasValoracion = comparadorCartasValoracion;
 	}
 	

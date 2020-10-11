@@ -2,13 +2,13 @@ package juegos.cartas.cartas.ordenar;
 
 import java.util.List;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 
 public class OrdenacionNumerica implements OrdenacionCartas
 {
 
 	@Override
-	public List<Carta> ordenarCartas(List<Carta> cartas) {
+	public List<CartaFrancesaOld> ordenarCartas(List<CartaFrancesaOld> cartas) {
 		return null;
 	}
 	

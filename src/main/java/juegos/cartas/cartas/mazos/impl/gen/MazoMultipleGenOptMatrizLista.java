@@ -6,13 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import juegos.cartas.cartas.cartas.CartaNumeroPalo;
+import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasExtraccionConcreta;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
-import juegos.cartas.cartas.mazos.modelos.MazoConsulta;
-import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
+import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoInsercion;
 
 /**
  * MAZO MULTIPLE
@@ -31,7 +31,7 @@ import juegos.cartas.cartas.mazos.modelos.MazoInsercion;
  * @author victor
  *
  */
-public class MazoMultipleGenOptMatrizLista<C extends CartaNumeroPalo<N, P>,N,P> 
+public class MazoMultipleGenOptMatrizLista<C extends ICartaNumeroPalo<N, P>,N,P> 
 extends MazoGen<C, N, P>
 implements 
 MazoCartasSimple<C>,

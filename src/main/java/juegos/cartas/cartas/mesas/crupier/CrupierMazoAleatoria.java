@@ -1,7 +1,7 @@
 package juegos.cartas.cartas.mesas.crupier;
 
 import juegos.cartas.cartas.cartas.ICartaComparable;
-import juegos.cartas.cartas.mazos.modelos.MazoCartasSimple;
+import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
 
 /**
  * Crupier que tiene un mazo de cartas

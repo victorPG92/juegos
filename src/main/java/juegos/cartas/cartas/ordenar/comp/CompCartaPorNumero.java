@@ -2,17 +2,17 @@ package juegos.cartas.cartas.ordenar.comp;
 
 import java.util.Comparator;
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 
 /**
  * Compara cartas segun el valor
  * @author victor
  *
  */
-public class CompCartaPorNumero implements Comparator<Carta> {
+public class CompCartaPorNumero implements Comparator<CartaFrancesaOld> {
 
 	@Override
-	public int compare(Carta carta1, Carta carta2) 
+	public int compare(CartaFrancesaOld carta1, CartaFrancesaOld carta2) 
 	{
 		int n1=carta1.getNumero();
 		int n2=carta2.getNumero();

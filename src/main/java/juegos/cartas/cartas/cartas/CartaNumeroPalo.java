@@ -12,7 +12,7 @@ package juegos.cartas.cartas.cartas;
  * @param <N>
  * @param <P>
  */
-public class CartaNumeroPalo<N,P> implements ICartaComparable
+public class CartaNumeroPalo<N,P> implements ICartaNumeroPalo<N,P>
 {
 
 	protected N numero;

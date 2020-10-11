@@ -3,7 +3,7 @@ package juegos.cartas.cartas.ordenar.comp;
 import java.util.Comparator;
 
 
-import juegos.cartas.cartas.cartas.Carta;
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**
@@ -12,10 +12,10 @@ import juegos.cartas.cartas.cartas.palos.PaloFrances;
  * @author victor
  *
  */
-public class CompCartaPorColor implements Comparator<Carta> {
+public class CompCartaPorColor implements Comparator<CartaFrancesaOld> {
 
 	@Override
-	public int compare(Carta carta1, Carta carta2) 
+	public int compare(CartaFrancesaOld carta1, CartaFrancesaOld carta2) 
 	{
 		PaloFrances p1= carta1.getPalo();
 		PaloFrances p2= carta2.getPalo();
