@@ -6,6 +6,7 @@ import java.util.Random;
 
 import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
+import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
@@ -38,7 +39,10 @@ implements
 	private boolean seleccionada[][];
 	private int cont;
 	
-	
+	public MazoGenOptMatriz(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P, C> domVP)
+	{
+		this(s, domVP.getDomPalo(),domVP.getDomValor());
+	}
 	
 	public MazoGenOptMatriz(SupplierNewCarta<C, N, P> s, Dominio<P> domP, Dominio<N> domN)
 	{

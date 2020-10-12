@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
+import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloEspaniola;
 
 /**
  * Crea dominios concretos de valores y palos de las cartas espaniola y francesa
@@ -11,36 +12,26 @@ import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
  * @author victor
  *
  */
-public class FactDominiosCartas 
+public class FactDominiosCartasFr 
+extends FactDominioDobleVP<Integer, String, ICartaNumeroPaloEspaniola<Integer,String>>
+//implements FactDominioDoble<Integer, String, ICartaNumeroPaloFrancesa<Integer,String>>
 {
 	
-	public Dominio<Integer> getDominioNumericoCartasEspaniolas()
-	{
-		FactComparator fComp= new FactComparator();
-		Set<Integer> valores= new HashSet<>();
-		for(int i=1;i<8;i++)
-			valores.add(i);
-		
-		for(int i=10;i<13;i++)
-			valores.add(i);
-		
-		Dominio<Integer> dom= new Dominio<>(valores, fComp.creaComparadorDeComparable());
-		
-		return dom;
-	}
 	
-	public Dominio<String> getDominioPalosCartasEspaniolas()
+	
+	
+	public Dominio<String> getDominioPalos()
 	{
-		return new Dominio<>(Set.of("oros","copas","espadas","bastos"),
-				new FactComparator().creaComparadorDeComparable());
-		
+		return getDominioPalosCartasFrancesa();
 	}
-
 	public Dominio<String> getDominioPalosCartasFrancesa() {
 		return new Dominio<>(Set.of("diamantes","picas","corazones","treboles"),new FactComparator().creaComparadorDeComparable());
 		
 	}
-
+	public Dominio<Integer> getDominioNumerico()
+	{
+		return getDominioNumericoCartasFrancesa();
+	}
 	public Dominio<Integer> getDominioNumericoCartasFrancesa() {
 		FactComparator fComp= new FactComparator();
 		Set<Integer> valores= new HashSet<>();
@@ -60,6 +51,8 @@ public class FactDominiosCartas
 		
 		return dom;
 	}
+	
+	
 	
 	/*public GetterByAlias<Integer> getAliasFrances(Collection<> coll)
 	{
