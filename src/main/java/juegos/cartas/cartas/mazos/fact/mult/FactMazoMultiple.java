@@ -1,8 +1,7 @@
 package juegos.cartas.cartas.mazos.fact.mult;
 
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
-import juegos.cartas.cartas.cartas.modelos.CartaFrancesa;
-import juegos.cartas.cartas.cartas.modelos.imp.fr.CartaFrancesaImpI;
+import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloFrancesa;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.fact.FactFachadaMazoEspFr;
 import juegos.cartas.cartas.mazos.fact.TipoClasico;
@@ -10,7 +9,7 @@ import juegos.cartas.cartas.mazos.fact.TipoParametrizacion;
 import juegos.cartas.cartas.mazos.impl.gen.mult.MazoMultipleGenOptMatrizLista;
 import juegos.cartas.cartas.mazos.modelos.func.MazoMultiple;
 
-public class FactMazoMultiple<C extends CartaFrancesaImpI<Integer, P>,P>
+public class FactMazoMultiple<C extends ICartaNumeroPaloFrancesa<Integer, P>,P>
 {
 	
 	FactFachadaMazoEspFr fach= FactFachadaMazoEspFr.getInst();
