@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.mazos.impl;
+package juegos.cartas.cartas.mazos.impl.olds;
 
 import java.util.ArrayList;
 import java.util.Collections;

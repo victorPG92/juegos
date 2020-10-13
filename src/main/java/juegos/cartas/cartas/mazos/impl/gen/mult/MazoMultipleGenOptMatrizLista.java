@@ -1,4 +1,4 @@
-package juegos.cartas.cartas.mazos.impl.gen;
+package juegos.cartas.cartas.mazos.impl.gen.mult;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,7 +8,9 @@ import java.util.Random;
 
 import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
+import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
+import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
@@ -55,6 +57,11 @@ MazoMultiple<C>
 	
 	boolean shuffle=true;
 	
+	
+	public MazoMultipleGenOptMatrizLista(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P, C> domVP, int numMazos)
+	{
+		this(s,domVP.getDomPalo(),domVP.getDomValor(), numMazos);
+	}
 	public MazoMultipleGenOptMatrizLista(SupplierNewCarta<C, N, P> s, Dominio<P> domP, Dominio<N> domV, int numMazos)
 	{
 		super(s,domP,domV);
