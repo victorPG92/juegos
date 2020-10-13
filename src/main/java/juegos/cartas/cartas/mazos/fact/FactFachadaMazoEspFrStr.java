@@ -1,6 +1,8 @@
 package juegos.cartas.cartas.mazos.fact;
 
 import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.Map;
 
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.dom.fact.FactDominioDobleVP;
@@ -16,7 +18,9 @@ import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazo;
 import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazoGenMatrizLista;
 
-/**
+/**mas flexible que su padre porque permite acceder a las estructuras 
+ * y clave mediante String en vez de enum que es as restrictiva 
+ * 
  * Fachada de factoria de mazos clasicos ya implementados
  * Ofrece tantos los mazos en si ya construidos
  * como las piezas con las que se contruyen
@@ -26,42 +30,21 @@ import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazoGenMatrizLista;
  * @author victor
  *
  */
-public class FactFachadaMazoEspFr 
+public class FactFachadaMazoEspFrStr  extends FactFachadaMazoEspFr
 {
 	
-	SupplierNewCarta
-	<ICartaNumeroPaloEspaniola
-	<Integer, String>,
-	Integer,String> supplierCartaES_IS;
-	
-	SupplierNewCarta
-	<ICartaNumeroPaloEspaniola
-	<Integer, PaloEspaniol>,
-	Integer,PaloEspaniol> supplierCartaES_IE;
-	
-	SupplierNewCarta
-	<ICartaNumeroPaloFrancesa
-	<Integer, String>,
-	Integer,String> supplierCartaFR_IS;
-	
-	SupplierNewCarta
-	<ICartaNumeroPaloFrancesa
-	<Integer, PaloEspaniol>,
-	Integer,PaloEspaniol> supplierCartaFR_IE;
-	
-	EnumMap<TipoClasico,EnumMap<TipoParametrizacion,SupplierNewCarta>> 
-	suppliersCarta= new EnumMap<>(TipoClasico.class);
 	
 	
-	FactDominiosCartasFr fDomFr_FR_IS= new FactDominiosCartasFr();
-	FactDominiosCartasEnumFr fDomFr_FR_IE= new FactDominiosCartasEnumFr();
-	FactDominiosCartasEsp fDomFr_ES_IS= new FactDominiosCartasEsp();
-	FactDominiosCartasEnumEsp fDomFr_ES_IE= new FactDominiosCartasEnumEsp();
-	EnumMap<TipoClasico,EnumMap<TipoParametrizacion,FactDominioDobleVP>> 
-	factsDom= new EnumMap<>(TipoClasico.class);
+	Map<String,Map<String,SupplierNewCarta>> 
+	suppliersCarta= new HashMap<>();
 	
-	EnumMap<TipoClasico,EnumMap<TipoParametrizacion,DominioValorPalo>> 
-	dominiosVP= new EnumMap<>(TipoClasico.class);
+	
+	
+	Map<String,Map<String,FactDominioDobleVP>> 
+	factsDom= new HashMap<>();
+	
+	Map<String,Map<String,DominioValorPalo>> 
+	dominiosVP= new HashMap<>();
 	
 	SupplierMazo supplierMazoML= new SupplierMazoGenMatrizLista<>();
 	EnumMap<TipoImplementacionMazo,SupplierMazo> suppliersMazo= new EnumMap<>(TipoImplementacionMazo.class);
@@ -72,11 +55,12 @@ public class FactFachadaMazoEspFr
 	
 	*/
 	
-	protected FactFachadaMazoEspFr()
+	private FactFachadaMazoEspFrStr()
 	{
+		super();
 		for(TipoClasico tipoClasico: TipoClasico.values())
 		{
-			dominiosVP.put(tipoClasico, new EnumMap<>(TipoParametrizacion.class));
+			dominiosVP.put(tipoClasico.toString(), new HashMap<>());
 
 		}
 		
@@ -96,62 +80,37 @@ public class FactFachadaMazoEspFr
 	
 	private void inicializaFactDom()
 	{
-		EnumMap<TipoParametrizacion,FactDominioDobleVP> mapaFr= new EnumMap<>(TipoParametrizacion.class);
-		mapaFr.put(TipoParametrizacion.Int_Enum, fDomFr_FR_IE);
-		mapaFr.put(TipoParametrizacion.Int_String, fDomFr_FR_IS);
-		factsDom.put(TipoClasico.Francesa, mapaFr);
+		Map<String,FactDominioDobleVP> mapaFr= new HashMap<>();
+		mapaFr.put(TipoParametrizacion.Int_Enum.toString(), fDomFr_FR_IE);
+		mapaFr.put(TipoParametrizacion.Int_String.toString(), fDomFr_FR_IS);
+		factsDom.put(TipoClasico.Francesa.toString(), mapaFr);
 		
 		
-		EnumMap<TipoParametrizacion,FactDominioDobleVP> mapaEs= new EnumMap<>(TipoParametrizacion.class);
-		mapaEs.put(TipoParametrizacion.Int_Enum, fDomFr_ES_IE);
-		mapaEs.put(TipoParametrizacion.Int_String, fDomFr_ES_IS);
-		factsDom.put(TipoClasico.Espaniola, mapaEs);
+		Map<String,FactDominioDobleVP> mapaEs= new HashMap<>();
+		mapaEs.put(TipoParametrizacion.Int_Enum.toString(), fDomFr_ES_IE);
+		mapaEs.put(TipoParametrizacion.Int_String.toString(), fDomFr_ES_IS);
+		factsDom.put(TipoClasico.Espaniola.toString(), mapaEs);
 		
 	}
 	
 	private void inicializaSuppliersCarta()
 	{
-		EnumMap<TipoParametrizacion,SupplierNewCarta> mapaFr= new EnumMap<>(TipoParametrizacion.class);
-		mapaFr.put(TipoParametrizacion.Int_Enum, supplierCartaFR_IE);
-		mapaFr.put(TipoParametrizacion.Int_String, supplierCartaFR_IS);
-		suppliersCarta.put(TipoClasico.Francesa, mapaFr);
+		Map<String,SupplierNewCarta> mapaFr= new HashMap<>();
+		mapaFr.put(TipoParametrizacion.Int_Enum.toString(), supplierCartaFR_IE);
+		mapaFr.put(TipoParametrizacion.Int_String.toString(), supplierCartaFR_IS);
+		suppliersCarta.put(TipoClasico.Francesa.toString(), mapaFr);
 		
 		
-		EnumMap<TipoParametrizacion,SupplierNewCarta> mapaEs= new EnumMap<>(TipoParametrizacion.class);
-		mapaEs.put(TipoParametrizacion.Int_Enum, supplierCartaES_IE);
-		mapaEs.put(TipoParametrizacion.Int_String, supplierCartaES_IS);
-		suppliersCarta.put(TipoClasico.Espaniola, mapaEs);
-		
-	}
-	
-	public MazoGen<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> crearBarajaEspaniolaIS()
-	{
-		return crearBaraja(TipoClasico.Espaniola, TipoParametrizacion.Int_String, TipoImplementacionMazo.listaMatriz);
-		
-		
-	}
-	public MazoGen<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> crearBarajaEspaniolaES()
-	{
-		return crearBaraja(TipoClasico.Espaniola, TipoParametrizacion.Int_Enum, TipoImplementacionMazo.listaMatriz);
-		
-		
-	}
-	public MazoGen<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> crearBarajaFrancesaIS()
-	{
-		return crearBaraja(TipoClasico.Francesa, TipoParametrizacion.Int_String, TipoImplementacionMazo.listaMatriz);
-		
+		Map<String,SupplierNewCarta> mapaEs= new HashMap<>();
+		mapaEs.put(TipoParametrizacion.Int_Enum.toString(), supplierCartaES_IE);
+		mapaEs.put(TipoParametrizacion.Int_String.toString(), supplierCartaES_IS);
+		suppliersCarta.put(TipoClasico.Espaniola.toString(), mapaEs);
 		
 	}
 	
-	public MazoGen<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> crearBarajaFrancesaES()
-	{
-		return crearBaraja(TipoClasico.Francesa, TipoParametrizacion.Int_Enum, TipoImplementacionMazo.listaMatriz);
 		
-		
-	}
 	
-	
-	public MazoGen crearBaraja(TipoClasico tipoClasico,TipoParametrizacion tipoParam, TipoImplementacionMazo tipoImplMazo)
+	public MazoGen crearBaraja(String tipoClasico,String tipoParam, TipoImplementacionMazo tipoImplMazo)
 	{
 		BuilderMazoClasicoComp<Integer, String, ICartaNumeroPaloEspaniola<Integer,String>> bMazo= 
 				new
@@ -165,10 +124,10 @@ public class FactFachadaMazoEspFr
 	}
 	 
 	
-	public DominioValorPalo/*<V, P, C extends ICartaNumeroPalo<V,P>>*/ dameDominio(TipoClasico tipoClasico,TipoParametrizacion tipoParam )
+	public DominioValorPalo/*<V, P, C extends ICartaNumeroPalo<V,P>>*/ dameDominio(String tipoClasico,String tipoParam )
 	{
 		
-		EnumMap<TipoParametrizacion, DominioValorPalo> mapaCl = dominiosVP.get(tipoClasico);//todos los tipos son insertados, no debe ser null
+		Map<String, DominioValorPalo> mapaCl = dominiosVP.get(tipoClasico);//todos los tipos son insertados, no debe ser null
 		if(mapaCl.containsKey(tipoParam))
 		{
 			return mapaCl.get(tipoParam);
@@ -176,7 +135,7 @@ public class FactFachadaMazoEspFr
 		else
 		{
 			DominioValorPalo dom = dameFactDom(tipoClasico, tipoParam).creaDominioVP();
-			mapaCl.put(tipoParam,dom);
+			mapaCl.put(tipoParam.toString(),dom);
 			
 			return dom;
 		}
@@ -203,9 +162,19 @@ public class FactFachadaMazoEspFr
 		return suppliersCarta.get(tipoClasico).get(tipoParam);
 	}
 	
-	private static FactFachadaMazoEspFr inst= new FactFachadaMazoEspFr();
+	
+	public FactDominioDobleVP dameFactDom(String tipoClasico,String tipoParam)
+	{
+		return factsDom.get(tipoClasico).get(tipoParam);
+	}
+	
+	public SupplierNewCarta dameSuplierCarta(String tipoClasico,String tipoParam)
+	{
+		return suppliersCarta.get(tipoClasico).get(tipoParam);
+	}
+	
+	private static FactFachadaMazoEspFrStr inst= new FactFachadaMazoEspFrStr();
 
-	/*
 	public SupplierNewCarta<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> getSupplierCartaES_IS() {
 		return supplierCartaES_IS;
 	}
@@ -222,7 +191,8 @@ public class FactFachadaMazoEspFr
 		return supplierCartaFR_IE;
 	}
 
-	public EnumMap<TipoClasico, EnumMap<TipoParametrizacion, SupplierNewCarta>> getSuppliersCarta() {
+	
+	public Map<String, Map<String, SupplierNewCarta>> getSuppliersCarta() {
 		return suppliersCarta;
 	}
 
@@ -242,11 +212,11 @@ public class FactFachadaMazoEspFr
 		return fDomFr_ES_IE;
 	}
 
-	public EnumMap<TipoClasico, EnumMap<TipoParametrizacion, FactDominioDobleVP>> getFactsDom() {
+	public Map<String, Map<String, FactDominioDobleVP>> getFactsDom() {
 		return factsDom;
 	}
 
-	public EnumMap<TipoClasico, EnumMap<TipoParametrizacion, DominioValorPalo>> getDominiosVP() {
+	public Map<String, Map<String, DominioValorPalo>> getDominiosVP() {
 		return dominiosVP;
 	}
 
@@ -257,8 +227,8 @@ public class FactFachadaMazoEspFr
 	public EnumMap<TipoImplementacionMazo, SupplierMazo> getSuppliersMazo() {
 		return suppliersMazo;
 	}
-*/
-	public static FactFachadaMazoEspFr getInst() {
+
+	public static FactFachadaMazoEspFrStr getInst() {
 		return inst;
 	}
 	

@@ -13,18 +13,18 @@ import juegos.cartas.cartas.mazos.modelos.func.MazoMultiple;
 public class FactMazoMultiple<C extends CartaFrancesaImpI<Integer, P>,P>
 {
 	
-	FactFachadaMazoEspFr fach= new FactFachadaMazoEspFr();
+	FactFachadaMazoEspFr fach= FactFachadaMazoEspFr.getInst();
 	/*
 	SupplierNewCarta<C, N, P> supplier;
 	FactD
 	*/
-	public MazoMultiple<C> creaMazoMult(int numMazos, TipoParametrizacion tipoParam)
+	public MazoMultiple<C> creaMazoMult(int numMazos, TipoClasico cl,TipoParametrizacion tipoParam)
 	{
-		TipoClasico fr= TipoClasico.Francesa;
+		//TipoClasico fr= TipoClasico.Francesa;
 		
-		SupplierNewCarta<C, Integer, P> supplier = fach.dameSuplierCarta(fr, tipoParam);
+		SupplierNewCarta<C, Integer, P> supplier = fach.dameSuplierCarta(cl, tipoParam);
 		
-		DominioValorPalo<Integer, P, C> dom= fach.dameDominio(fr, tipoParam);
+		DominioValorPalo<Integer, P, C> dom= fach.dameDominio(cl, tipoParam);
 		return 
 				new MazoMultipleGenOptMatrizLista<>(supplier, dom,numMazos);
 		
