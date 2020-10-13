@@ -2,9 +2,6 @@ package juegos.cartas.cartas.mazos.fact;
 
 import java.util.EnumMap;
 
-import org.yaml.snakeyaml.events.MappingEndEvent;
-
-import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.dom.fact.FactDominioDobleVP;
 import juegos.cartas.cartas.cartas.dom.fact.FactDominiosCartasEnumEsp;
@@ -21,10 +18,15 @@ import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazoGenMatrizLista;
 
 /**
  * Fachada de factoria de mazos clasicos ya implementados
+ * Ofrece tantos los mazos en si ya construidos
+ * como las piezas con las que se contruyen
+ * como suppliers de cartas y mazos, dominios, 
+
+ * 
  * @author victor
  *
  */
-public class FactMazoEspFr 
+public class FactFachadaMazoEspFr 
 {
 	
 	SupplierNewCarta
@@ -70,7 +72,7 @@ public class FactMazoEspFr
 	
 	*/
 	
-	public FactMazoEspFr()
+	public FactFachadaMazoEspFr()
 	{
 		for(TipoClasico tipoClasico: TipoClasico.values())
 		{
@@ -163,7 +165,7 @@ public class FactMazoEspFr
 	}
 	 
 	
-	private DominioValorPalo/*<V, P, C extends ICartaNumeroPalo<V,P>>*/ dameDominio(TipoClasico tipoClasico,TipoParametrizacion tipoParam )
+	public DominioValorPalo/*<V, P, C extends ICartaNumeroPalo<V,P>>*/ dameDominio(TipoClasico tipoClasico,TipoParametrizacion tipoParam )
 	{
 		
 		EnumMap<TipoParametrizacion, DominioValorPalo> mapaCl = dominiosVP.get(tipoClasico);//todos los tipos son insertados, no debe ser null
@@ -180,7 +182,7 @@ public class FactMazoEspFr
 		}
 	}
 	
-	private SupplierMazo/*<C extends ICartaNumeroPalo<N,P>, N, P>*/ dameSupplierMazo(TipoImplementacionMazo tipoImpl)
+	public SupplierMazo/*<C extends ICartaNumeroPalo<N,P>, N, P>*/ dameSupplierMazo(TipoImplementacionMazo tipoImpl)
 	{
 		//if(TipoImplementacionMazo.lista.equals(tipoImpl))
 			return new SupplierMazoGenMatrizLista();
@@ -191,12 +193,12 @@ public class FactMazoEspFr
 			
 	}
 	
-	private FactDominioDobleVP dameFactDom(TipoClasico tipoClasico,TipoParametrizacion tipoParam)
+	public FactDominioDobleVP dameFactDom(TipoClasico tipoClasico,TipoParametrizacion tipoParam)
 	{
 		return factsDom.get(tipoClasico).get(tipoParam);
 	}
 	
-	private SupplierNewCarta dameSuplierCarta(TipoClasico tipoClasico,TipoParametrizacion tipoParam)
+	public SupplierNewCarta dameSuplierCarta(TipoClasico tipoClasico,TipoParametrizacion tipoParam)
 	{
 		return suppliersCarta.get(tipoClasico).get(tipoParam);
 	}
