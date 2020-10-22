@@ -2,6 +2,7 @@ package juegos.cartas.cartas.mazos.impl.gen;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -10,6 +11,7 @@ import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoBarajear;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
@@ -35,7 +37,8 @@ implements
 MazoCartasSimple<C>,
 MazoCartasExtraccionConcreta<C>, 
 MazoConsulta<C>,
-MazoInsercion<C>
+MazoInsercion<C>,
+MazoBarajear
 
 {
 	private C mazo[][];
@@ -48,6 +51,7 @@ MazoInsercion<C>
 	int indices[]= new int[4];
 	
 	boolean shuffle=true;
+	private Comparator<C> comp;
 	
 	public MazoGenOptMatrizLista(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P, C> domVP)
 	{
@@ -78,7 +82,7 @@ MazoInsercion<C>
 		}
 		
 		if(shuffle)
-			Collections.shuffle(cartasOrdenadas);
+			barajear();
 	}
 	
 	
@@ -173,7 +177,24 @@ MazoInsercion<C>
 		
 		//si ya esta en el mazo, se inserta de nuevo, pero no repite
 		seleccionada[p][n]=true;
+	
 		
+		if (shuffle)
+			cartasOrdenadas.add(c);
+		else
+		{
+			int pos= indices[p];
+			C cartaSig= cartasOrdenadas.get(pos);
+			while(comp.compare(c, cartaSig)<0)//mientras no la alcance
+			{
+				pos++;
+				cartaSig= cartasOrdenadas.get(pos);
+			}
+			
+			cartasOrdenadas.add(pos,c);
+			desplazarIndices(palo, 1);
+
+		}
 		if(!shuffle)
 			desplazarIndices(palo, 1);
 		
@@ -419,6 +440,15 @@ MazoInsercion<C>
 	@Override
 	public boolean isEmpty() {
 		return cartasOrdenadas.isEmpty();
+	}
+
+	@Override
+	public void barajear()
+	{
+		if(shuffle)
+			Collections.shuffle(cartasOrdenadas);	
+		else
+			r = new Random(System.currentTimeMillis());
 	}
 
 	

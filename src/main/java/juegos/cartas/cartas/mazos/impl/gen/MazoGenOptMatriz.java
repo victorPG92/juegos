@@ -8,6 +8,7 @@ import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
+import juegos.cartas.cartas.mazos.modelos.func.MazoBarajear;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasExtraccionConcreta;
 import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
 import juegos.cartas.cartas.mazos.modelos.func.MazoConsulta;
@@ -32,7 +33,9 @@ implements
 	MazoCartasSimple<C>,
 	MazoCartasExtraccionConcreta<C>, 
 	MazoConsulta<C>,
-	MazoInsercion<C>
+	MazoInsercion<C>,
+	MazoBarajear
+
 {
 	
 	private C mazo[][];
@@ -293,6 +296,14 @@ implements
 	@Override
 	public boolean isEmpty() {
 		return size()==0;
+	}
+
+	@Override
+	public void barajear()
+	{
+
+		// como a la hora de pedir carta aleatoria usa random
+		// no es necesario volver a barajar
 	}
 
 
