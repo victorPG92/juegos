@@ -27,6 +27,7 @@ public class Dominio<V> implements Iterable<V>
 
 	protected List<V> values= new ArrayList<>();
 	
+	/** para evitar un list.indexOf() : flexible, puede ser mapa, o esa funcion, etc*/
 	protected Indexer<V> indexer;
 		
 	protected GetterByAlias<V> getterByAlias;
@@ -118,57 +119,65 @@ public class Dominio<V> implements Iterable<V>
 	}
 
 
+	/**
+	 * Devuelve el elemento en la posicion i
+	 * @param i
+	 * @return
+	 */
 	public V get(int i)
 	{
 		return values.get(i);
 	}
 	
+	/**
+	 * Devuelve el elemento con el posible alias 
+	 * @param i
+	 * @return
+	 */
 	public V get(String alias)
 	{
 		return getterByAlias.getByAlias(alias);
 	}
 	
+	/**
+	 * Convierte a string el elemento v
+	 * @param v
+	 * @return
+	 */
 	public String toString(V v)
 	{
 		return getterByAlias.toString(v);
 	}
 	
+	/**
+	 * Devuelve la posicion en la que se encuentra el elemento v
+	 * @param v
+	 * @return
+	 */
 	public int indexOf(V v)
 	{
 		return indexer.indexOf(v);
 	}
 	
+	/**
+	 * Devuelve el numero de elementos del dominio
+	 * @return
+	 */
 	public int size()
 	{
 		return values.size();
 	}
 	
 	
-	public final Comparator<V> getComparator() {
-		return comparator;
-	}
-
-
-	public final void setComparator(Comparator<V> comparator) {
-		this.comparator = comparator;
-	}
-
-
-	public final List<V> getValues() {
-		return values;
-	}
-
-	public final void setValues(List<V> values) {
-		this.values = values;
-	}
-
-	@Override
-	public Iterator<V> iterator() {
-		
-		return values.iterator();
-	}
-
 	
+
+	/**
+	 * Indica la diferencia de posiciones entre los elementos
+	 * (sig-v1)
+	 * @param v1
+	 * @param sig
+	 * @return
+	 */
 	public Integer dif(V v1, V sig)
 	{
 		int i1=indexOf(v1);
@@ -181,6 +190,12 @@ public class Dominio<V> implements Iterable<V>
 		//throw new Unsupported
 	}
 	
+	/**
+	 * Indica si sig es elemento siguiente a v1
+	 * @param v1
+	 * @param sig
+	 * @return
+	 */
 	public boolean esSig(V v1, V sig)
 	{
 		Integer diff= dif(v1,sig);
@@ -188,14 +203,80 @@ public class Dominio<V> implements Iterable<V>
 		return diff!=null && diff==1;
 	}
 	
-
-	public boolean esAnt(V v1, V sig)
+	/**
+	 * Indica si ant es elemento siguiente a v1
+	 * @param v1
+	 * @param ant
+	 * @return
+	 */
+	public boolean esAnt(V v1, V ant)
 	{
-		Integer diff= dif(v1,sig);
+		Integer diff= dif(v1,ant);
 		
 		return diff!=null && diff==-1;
 					
 	}
+	
+	/**
+	 * Desde el elemento v1, avanza pos posiciones en el dominio
+	 * @param v1
+	 * @param pos
+	 * @return
+	 */
+	public V avanzaPos(V v1,int pos)
+	{
+		int i1=indexOf(v1);
+		int iSig=i1+pos;
+		if(iSig==values.size())
+			return null;
+		else
+			return values.get(iSig);
+		
+		
+	}
+	
+	/**
+	 * Devuelve el elemento siguiente
+	 * @param v1
+	 * @return
+	 */
+	public V sig(V v1)
+	{return avanzaPos(v1, 1);}
+	
+	/**
+	 * Devuelve el elemento anterior
+	 * @param v1
+	 * @return
+	 */
+	public V ant(V v1)
+	{return avanzaPos(v1, -1);}
+	
+	
+	/**
+	 * Devuelve el primer elemento del dominio
+	 * @param v1
+	 * @return
+	 */
+	public V first()
+	{
+		if(values.isEmpty())
+			return null;
+		return values.get(0);
+	}
+	
+	/**
+	 * Devuelve el ultimo elemento del dominio
+	 * @param v1
+	 * @return
+	 */
+	public V last()
+	{
+		if(values.isEmpty())
+			return null;
+		return values.get(values.size()-1);
+	}
+
+	
 
 	
 	
@@ -222,6 +303,29 @@ public class Dominio<V> implements Iterable<V>
 		this.getterByAlias = getterByAlias;
 	}
 	
+	public final Comparator<V> getComparator() {
+		return comparator;
+	}
+
+
+	public final void setComparator(Comparator<V> comparator) {
+		this.comparator = comparator;
+	}
+
+
+	public final List<V> getValues() {
+		return values;
+	}
+
+	public final void setValues(List<V> values) {
+		this.values = values;
+	}
+
+	@Override
+	public Iterator<V> iterator() {
+		
+		return values.iterator();
+	}
 	
 	
 	
