@@ -23,6 +23,9 @@ public abstract class CrupierMazo<C extends ICartaComparable> implements Crupier
 	public CrupierMazo(MazoCartasSimple<C> mazo) {
 		super();
 		this.mazo = mazo;
+		
+		if(mazo==null)
+			throw new NullPointerException();
 	}
 
 	

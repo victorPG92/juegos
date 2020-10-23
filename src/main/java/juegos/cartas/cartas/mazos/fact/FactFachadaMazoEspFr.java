@@ -11,6 +11,7 @@ import juegos.cartas.cartas.cartas.dom.fact.FactDominiosCartasFr;
 import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloEspaniola;
 import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloFrancesa;
 import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazo;
@@ -130,20 +131,20 @@ public class FactFachadaMazoEspFr
 		
 		
 	}
-	public MazoGen<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> crearBarajaEspaniolaES()
+	public MazoGen<ICartaNumeroPaloEspaniola<Integer, PaloEspaniol>, Integer, PaloEspaniol> crearBarajaEspaniolaIE()
 	{
 		return crearBaraja(TipoClasico.Espaniola, TipoParametrizacion.Int_Enum, TipoImplementacionMazo.listaMatriz);
 		
 		
 	}
-	public MazoGen<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> crearBarajaFrancesaIS()
+	public MazoGen<ICartaNumeroPaloFrancesa<Integer, String>, Integer, String> crearBarajaFrancesaIS()
 	{
 		return crearBaraja(TipoClasico.Francesa, TipoParametrizacion.Int_String, TipoImplementacionMazo.listaMatriz);
 		
 		
 	}
 	
-	public MazoGen<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> crearBarajaFrancesaES()
+	public MazoGen<ICartaNumeroPaloFrancesa<Integer, PaloFrances>, Integer, PaloFrances> crearBarajaFrancesaIE()
 	{
 		return crearBaraja(TipoClasico.Francesa, TipoParametrizacion.Int_Enum, TipoImplementacionMazo.listaMatriz);
 		

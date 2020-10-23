@@ -14,15 +14,19 @@ import juegos.cartas.cartas.mazos.modelos.func.MazoCartasSimple;
 public class CrupierMazoAleatoria<C extends ICartaComparable> extends CrupierMazo<C>
 {
 	
-	MazoCartasSimple<C> mazo;
+	
 
-	public CrupierMazoAleatoria(MazoCartasSimple<C> mazo) {
+	public CrupierMazoAleatoria(MazoCartasSimple<C> mazo)
+	{
+		
 		super(mazo);
 		
 	}
 
 	@Override
-	public C reparteCarta() {
+	public C reparteCarta()
+	{
+		
 		return mazo.dameCartaAleatoria();
 	}
 	
