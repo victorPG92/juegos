@@ -4,15 +4,16 @@ import java.util.Comparator;
 import java.util.List;
 
 import juegos.cartas.cartas.cartas.CartaFrancesaOld;
+import juegos.cartas.cartas.cartas.ICartaComparable;
 
-public class OrdenacionComparador implements OrdenacionCartas
+public class OrdenacionComparador<T extends ICartaComparable> implements OrdenacionCartas<T>//<CartaFrancesaOld>
 {
 
-	Comparator<CartaFrancesaOld> comp;
+	Comparator<T> comp;
 	
 	
 	
-	public OrdenacionComparador(Comparator<CartaFrancesaOld> comp) {
+	public OrdenacionComparador(Comparator<T> comp) {
 		super();
 		this.comp = comp;
 	}
@@ -20,7 +21,7 @@ public class OrdenacionComparador implements OrdenacionCartas
 
 
 	@Override
-	public List<CartaFrancesaOld> ordenarCartas(List<CartaFrancesaOld> cartas) {
+	public List<T> ordenarCartas(List<T> cartas) {
 		cartas.sort(comp);
 		return cartas;
 	}

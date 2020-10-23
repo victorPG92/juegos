@@ -3,9 +3,10 @@ package juegos.cartas.cartas.ordenar;
 import java.util.List;
 
 import juegos.cartas.cartas.cartas.CartaFrancesaOld;
+import juegos.cartas.cartas.cartas.ICartaComparable;
 
-public interface OrdenacionCartas {
+public interface OrdenacionCartas<T extends ICartaComparable> {
 
 	
-	List<CartaFrancesaOld> ordenarCartas(List<CartaFrancesaOld> cartas);
+	List<T> ordenarCartas(List<T> cartas);
 }

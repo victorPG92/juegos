@@ -1,11 +1,15 @@
 package juegos.cartas.cartas.ordenar;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 
 import juegos.cartas.cartas.cartas.CartaFrancesaOld;
+import juegos.cartas.cartas.cartas.CartaNumeroPalo;
+import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 
 
 /**
@@ -15,24 +19,29 @@ import juegos.cartas.cartas.cartas.CartaFrancesaOld;
  * Incluye ordenar por numero, por color, por escalera
  * 
  */
-public class OrdenarCartas 
+public class OrdenarCartas<T extends CartaNumeroPalo<N, P>,N,P> //<CartaFrancesaOld> 
 {
+	
+	Comparator<T> compNumero;
+	Comparator<T> compPalo;
+	
+	Dominio<N> domV;
 	/**
 	 * Ordena de mayor a menor
 	 * @param mano
 	 * @return
 	 */
-	public List<CartaFrancesaOld> ordenarPorNumero( List<CartaFrancesaOld> mano)
+	public List<T> ordenarPorNumero( List<T> mano)
 	{
-		ArrayList<CartaFrancesaOld> a = new ArrayList<>();
+		List<T> a = new ArrayList<>();
 		a.add(mano.get(0));
 		
 		
 		for(int j=1;j<mano.size();j++)
 		{
-			CartaFrancesaOld elem = mano.get(j);
+			T elem = mano.get(j);
 			int i=0;
-			while(i < a.size() && elem.compareTo(a.get(i))<0)
+			while(i < a.size() && compNumero.compare(elem, a.get(i))<0)//elem.compareTo(a.get(i))<0)
 			{
 				i++;
 			}
@@ -44,13 +53,18 @@ public class OrdenarCartas
 	}
 	
 	
-	public List<CartaFrancesaOld> ordenarPorNumeroAscendente( List<CartaFrancesaOld> l)
+	public List<T> ordenarPorNumeroAscendente( List<T> l)
 	{
-		TreeSet<CartaFrancesaOld> ts= new TreeSet<>();
+		/*
+		TreeSet<T> ts= new TreeSet<>();
 		ts.addAll(l);
-		ArrayList<CartaFrancesaOld> r = new ArrayList<>();
+		ArrayList<T> r = new ArrayList<>();
 		r.addAll(ts); 
 		return r;
+		*/
+		
+		Collections.sort(l,compNumero);
+		return l;
 	}
 	
 	/**
@@ -58,8 +72,10 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public List<CartaFrancesaOld> ordenarPorColor( List<CartaFrancesaOld> l)
+	public List<T> ordenarPorColor( List<T> l)
 	{
+		
+		/*
 		ArrayList<CartaFrancesaOld> a = new ArrayList<>();
 		a.add(l.get(0));
 		
@@ -77,6 +93,10 @@ public class OrdenarCartas
 			
 		}
 		return a;
+		*/
+		
+		Collections.sort(l, compPalo);
+		return l;
 	}
 	
 	/**
@@ -85,20 +105,20 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public List<CartaFrancesaOld> ordenarPorEscalera( List<CartaFrancesaOld> l)
+	public List<T> ordenarPorEscalera( List<T> l)
 	{
-		List<CartaFrancesaOld> a = ordenarPorNumero(l);
-		ArrayList<CartaFrancesaOld> r = new ArrayList<>();
+		List<T> ordenadoNumero = ordenarPorNumero(l);
+		ArrayList<T> r = new ArrayList<>();
 		 
 		
-		for(int i=0;i<a.size()-1;i++)
+		for(int i=0;i<ordenadoNumero.size()-1;i++)
 		{
 			int dif=0;
 			
-			CartaFrancesaOld e1 = a.get(i);
-			CartaFrancesaOld e2 = a.get(i+1);
+			T e1 = ordenadoNumero.get(i);
+			T e2 = ordenadoNumero.get(i+1);
 			
-			dif = e2.getNumero()-e1.getNumero();
+			dif = domV.dif(e1.getNumero(),e2.getNumero());//e2.getNumero()-e1.getNumero();
 			
 			if(dif == 1 )
 			{
@@ -128,20 +148,23 @@ public class OrdenarCartas
 		}
 		
 		
-		for(CartaFrancesaOld c : a)
+		for(T c : ordenadoNumero)
 		{
 			if(!r.contains(c)) r.add(c);
 		}
 		return r;
 	}
 	
-	public List<CartaFrancesaOld> ordenarPorIguales( List<CartaFrancesaOld> l)
+	public List<T> ordenarPorIguales( List<T> l)
 	{
-		return ordenarPorIguales2(l);
+		//if(T == CartaFrancesaOld.class)
+		return ordenarPorIguales1(l);
 	}
 	
-	public List<CartaFrancesaOld> ordenarPorIguales1( List<CartaFrancesaOld> l)
+	public List<T> ordenarPorIguales1( List<T> l)
 	{
+		
+		//Collections.frequency(c, o)
 		/*ArrayList<Carta> a = ordenarPorNumero(l);
 		
 		ArrayList<Carta> r = new ArrayList<>();

@@ -1,6 +1,7 @@
 package juegos.cartas.cartas.ordenar;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -12,9 +13,9 @@ import java.util.ArrayList;
 public class Ordenar <T extends  Comparable>// Comparable<Carta>>
 {
 	@SuppressWarnings("unchecked")
-	public ArrayList<T> ordenar( ArrayList<T> l)
+	public List<T> ordenar( List<T> l)
 	{
-		ArrayList<T> a = new ArrayList<T>();
+		List<T> a = new ArrayList<T>();
 		a.add(l.get(0));
 		
 		

@@ -168,7 +168,41 @@ public class Dominio<V> implements Iterable<V>
 		return values.iterator();
 	}
 
+	
+	public Integer dif(V v1, V sig)
+	{
+		int i1=indexOf(v1);
+		if(i1==-1)
+			return null;
+		int i2= indexOf(sig);
+		if(i2==-1)
+			return null;
+		return i2-i1; 
+		//throw new Unsupported
+	}
+	
+	public boolean esSig(V v1, V sig)
+	{
+		Integer diff= dif(v1,sig);
+		
+		return diff!=null && diff==1;
+	}
+	
 
+	public boolean esAnt(V v1, V sig)
+	{
+		Integer diff= dif(v1,sig);
+		
+		return diff!=null && diff==-1;
+					
+	}
+
+	
+	
+	
+	
+	
+	
 	public final Indexer<V> getIndexer() {
 		return indexer;
 	}
