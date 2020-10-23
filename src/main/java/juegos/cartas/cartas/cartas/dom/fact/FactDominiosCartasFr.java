@@ -12,8 +12,8 @@ import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloEspaniola;
  * @author victor
  *
  */
-public class FactDominiosCartasFr 
-extends FactDominioDobleVP<Integer, String, ICartaNumeroPaloEspaniola<Integer,String>>
+public class FactDominiosCartasFr <C extends ICartaNumeroPaloEspaniola<Integer,String>>
+extends FactDominioDobleVP<Integer, String, C>
 //implements FactDominioDoble<Integer, String, ICartaNumeroPaloFrancesa<Integer,String>>
 {
 	

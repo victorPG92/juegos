@@ -5,7 +5,6 @@ import java.util.Set;
 
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloFrancesa;
-import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**
@@ -14,8 +13,8 @@ import juegos.cartas.cartas.cartas.palos.PaloFrances;
 * @author victor
 *
 */
-public class FactDominiosCartasEnumFr 
-extends FactDominioDobleVP<Integer, PaloFrances, ICartaNumeroPaloFrancesa<Integer,PaloFrances>>
+public class FactDominiosCartasEnumFr <C extends ICartaNumeroPaloFrancesa<Integer,PaloFrances>>
+extends FactDominioDobleVP<Integer, PaloFrances, C>
 {
 	
 	

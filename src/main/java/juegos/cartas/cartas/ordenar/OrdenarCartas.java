@@ -5,10 +5,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.TreeSet;
 
 import juegos.cartas.cartas.cartas.CartaFrancesaOld;
-import juegos.cartas.cartas.cartas.CartaNumeroPalo;
+import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 
 
@@ -19,7 +18,7 @@ import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
  * Incluye ordenar por numero, por color, por escalera
  * 
  */
-public class OrdenarCartas<T extends CartaNumeroPalo<N, P>,N,P> //<CartaFrancesaOld> 
+public class OrdenarCartas<T extends ICartaNumeroPalo<N, P>,N,P> //<CartaFrancesaOld> 
 {
 	
 	Comparator<T> compNumero;

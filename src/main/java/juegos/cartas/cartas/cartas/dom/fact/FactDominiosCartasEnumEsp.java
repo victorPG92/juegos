@@ -13,8 +13,8 @@ import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
 * @author victor
 *
 */
-public class FactDominiosCartasEnumEsp 
-extends FactDominioDobleVP<Integer, PaloEspaniol, ICartaNumeroPaloEspaniola<Integer,PaloEspaniol>>
+public class FactDominiosCartasEnumEsp <C extends ICartaNumeroPaloEspaniola<Integer,PaloEspaniol >>
+extends FactDominioDobleVP<Integer, PaloEspaniol, C>
 {
 	
 	public Dominio<Integer> getDominioNumerico()
