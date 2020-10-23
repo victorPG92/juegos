@@ -276,6 +276,15 @@ public class Dominio<V> implements Iterable<V>
 		return values.get(values.size()-1);
 	}
 
+	public boolean isFirst(V v)
+	{
+		return indexOf(v)==0;
+	}
+	
+	public boolean isLast(V v)
+	{
+		return indexOf(v)==size()-1;
+	}
 	
 
 	
