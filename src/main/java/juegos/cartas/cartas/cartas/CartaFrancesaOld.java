@@ -1,13 +1,16 @@
 package juegos.cartas.cartas.cartas;
 
+import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloFrancesa;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**
  * Estructura carta con palo y numero
+ * 
+ * no entiendo por que es necesario implementar implicitamente ICartaNumeroPaloFrancesa<Integer,PaloFrances> si ya hereda de CartaNumeroPaloFrancesa<Integer,PaloFrances>
  * @author victor
  *
  */
-public class CartaFrancesaOld extends CartaNumeroPalo<Integer,PaloFrances> implements Comparable<CartaFrancesaOld>
+public class CartaFrancesaOld extends CartaNumeroPalo<Integer,PaloFrances> implements Comparable<CartaFrancesaOld> ,ICartaNumeroPaloFrancesa<Integer,PaloFrances>
 {/*
 	private PaloFrances palo;
 	private int num;

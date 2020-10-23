@@ -3,6 +3,7 @@ package juegos.cartas.cartas;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.mazos.fact.FactMazoConcretoEnums;
@@ -14,7 +15,7 @@ public class BarajaFrancesaFactTest
 	@Test
 	void testCrearBaraja() throws Exception {
 		
-		MazoGen<ICartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances> mazo = new FactMazoConcretoEnums().crearBarajaFrancesa();
+		MazoGen<CartaFrancesaOld, Integer, PaloFrances> mazo = new FactMazoConcretoEnums().crearBarajaFrancesa();
 		
 		Assert.assertNotNull(mazo);
 	}

@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.ICartaComparable;
 import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
@@ -16,7 +17,7 @@ import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 
 public class MazoTest 
 {
-	MazoGen<ICartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances> mazo;
+	MazoGen<CartaFrancesaOld, Integer, PaloFrances> mazo;
 	
 	//@BeforeAll
 	@BeforeEach
@@ -45,7 +46,7 @@ e.printStackTrace();		}
 	public void testDameNCartaAleatoria() throws Exception 
 	{
 		int n=2;
-		 List<ICartaNumeroPalo<Integer, PaloFrances>> cartas = mazo.dameNCartasAleatoria(n);
+		 List<CartaFrancesaOld> cartas = mazo.dameNCartasAleatoria(n);
 		
 		Assert.assertNotNull(cartas);
 		
@@ -61,8 +62,8 @@ e.printStackTrace();		}
 	{
 		
 		System.out.println("empezando el test carta concreta");
-		ICartaNumeroPalo<Integer,PaloFrances> cartaConcreta= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
-		ICartaNumeroPalo<Integer,PaloFrances> carta = mazo.dameCartaConcreta(cartaConcreta);
+		CartaFrancesaOld cartaConcreta= new CartaFrancesaOld(2,PaloFrances.CORAZONES);
+		CartaFrancesaOld carta = mazo.dameCartaConcreta(cartaConcreta);
 		
 		Assert.assertNotNull(carta);
 	
@@ -77,17 +78,17 @@ e.printStackTrace();		}
 	public void testDameNCartasConcretas() throws Exception 
 	{
 		//int n=2;
-		ICartaNumeroPalo<Integer,PaloFrances> cartaConcreta1= new CartaNumeroPalo<Integer,PaloFrances>(1,PaloFrances.CORAZONES);
+		CartaFrancesaOld cartaConcreta1= new CartaFrancesaOld(1,PaloFrances.CORAZONES);
 
-		ICartaNumeroPalo<Integer,PaloFrances> cartaConcreta2= new CartaNumeroPalo<Integer,PaloFrances>(2,PaloFrances.CORAZONES);
+		CartaFrancesaOld cartaConcreta2= new CartaFrancesaOld(2,PaloFrances.CORAZONES);
 
-		List<ICartaNumeroPalo<Integer,PaloFrances>> cartasConcretas= new ArrayList<>();
+		List<CartaFrancesaOld> cartasConcretas= new ArrayList<>();
 		
 		cartasConcretas.add(cartaConcreta1);
 		cartasConcretas.add(cartaConcreta2);
 
 		
-		List<ICartaNumeroPalo<Integer,PaloFrances>> cartas = mazo.dameNCartasConcretas(cartasConcretas);
+		List<CartaFrancesaOld> cartas = mazo.dameNCartasConcretas(cartasConcretas);
 		
 		System.out.println("cartas nulas");
 		Assert.assertNotNull(cartas);

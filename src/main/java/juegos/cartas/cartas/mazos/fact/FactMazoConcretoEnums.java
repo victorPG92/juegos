@@ -1,6 +1,7 @@
 package juegos.cartas.cartas.mazos.fact;
 
 
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
 import juegos.cartas.cartas.cartas.dom.dominios.Dominio;
 import juegos.cartas.cartas.cartas.dom.fact.FactDominiosCartasEnumEsp;
@@ -20,7 +21,7 @@ import juegos.cartas.cartas.mazos.impl.gen.MazoGenOptMatrizLista;
  */
 public class FactMazoConcretoEnums 
 {
-	FactDominiosCartasEnumFr fDomFr= new FactDominiosCartasEnumFr();	
+	FactDominiosCartasEnumFr<CartaFrancesaOld> fDomFr= new FactDominiosCartasEnumFr<>();	
 
 	FactDominiosCartasEnumEsp fDomEs= new FactDominiosCartasEnumEsp();	
 
@@ -37,15 +38,15 @@ public class FactMazoConcretoEnums
 		return mazo;
 	}
 	
-	public MazoGen<ICartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances> crearBarajaFrancesa()
+	public MazoGen<CartaFrancesaOld, Integer, PaloFrances> crearBarajaFrancesa()
 	{
-		MazoGen<ICartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances> mazo;
+		MazoGen<CartaFrancesaOld, Integer, PaloFrances> mazo;
 		
 		Dominio<PaloFrances> domP = fDomFr.getDominioPalosCartasFrancesa();
 		Dominio<Integer> domV = fDomFr.getDominioNumericoCartasFrancesa();
 	
-		SupplierNewCarta<ICartaNumeroPalo<Integer,PaloFrances>, Integer, PaloFrances> supplier= new SupplierNewCartaIntegerPaloFrances();
-		mazo= new MazoGenOptMatrizLista<ICartaNumeroPalo<Integer, PaloFrances>, Integer, PaloFrances>(supplier, domP, domV);		
+		SupplierNewCarta<CartaFrancesaOld, Integer, PaloFrances> supplier= new SupplierNewCartaIntegerPaloFrances();
+		mazo= new MazoGenOptMatrizLista<CartaFrancesaOld, Integer, PaloFrances>(supplier, domP, domV);		
 		
 		return mazo;
 	}
