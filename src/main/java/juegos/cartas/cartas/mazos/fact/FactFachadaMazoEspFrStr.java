@@ -13,6 +13,7 @@ import juegos.cartas.cartas.cartas.dom.fact.FactDominiosCartasFr;
 import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloEspaniola;
 import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloFrancesa;
 import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
+import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazo;
@@ -187,7 +188,7 @@ public class FactFachadaMazoEspFrStr  extends FactFachadaMazoEspFr
 		return supplierCartaFR_IS;
 	}
 
-	public SupplierNewCarta<ICartaNumeroPaloFrancesa<Integer, PaloEspaniol>, Integer, PaloEspaniol> getSupplierCartaFR_IE() {
+	public SupplierNewCarta<ICartaNumeroPaloFrancesa<Integer, PaloFrances>, Integer, PaloFrances> getSupplierCartaFR_IE() {
 		return supplierCartaFR_IE;
 	}
 

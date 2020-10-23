@@ -3,6 +3,7 @@ package juegos.cartas.cartas.cartas.supplier;
 import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 import juegos.cartas.cartas.cartas.ICartaNumeroPalo;
+import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloFrancesa;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**
@@ -13,7 +14,7 @@ import juegos.cartas.cartas.cartas.palos.PaloFrances;
  * @param <N>
  * @param <P>
  */
-public class SupplierNewCartaIntegerPaloFrances implements SupplierNewCarta<CartaFrancesaOld,Integer,PaloFrances>
+public class SupplierNewCartaIntegerPaloFrances implements SupplierNewCarta<ICartaNumeroPaloFrancesa<Integer, PaloFrances>,Integer,PaloFrances>
 {
 
 	@Override

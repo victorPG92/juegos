@@ -2,6 +2,7 @@ package juegos.cartas.cartas.mazos.fact;
 
 import java.util.EnumMap;
 
+import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.dom.dominios.DominioValorPalo;
 import juegos.cartas.cartas.cartas.dom.fact.FactDominioDobleVP;
 import juegos.cartas.cartas.cartas.dom.fact.FactDominiosCartasEnumEsp;
@@ -13,6 +14,11 @@ import juegos.cartas.cartas.cartas.modelos.ICartaNumeroPaloFrancesa;
 import juegos.cartas.cartas.cartas.palos.PaloEspaniol;
 import juegos.cartas.cartas.cartas.palos.PaloFrances;
 import juegos.cartas.cartas.cartas.supplier.SupplierNewCarta;
+import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerPaloEspaniol;
+import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerPaloFrances;
+import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerString;
+import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerStringEs;
+import juegos.cartas.cartas.cartas.supplier.SupplierNewCartaIntegerStringFr;
 import juegos.cartas.cartas.mazos.impl.gen.MazoGen;
 import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazo;
 import juegos.cartas.cartas.mazos.modelos.suppliers.SupplierMazoGenMatrizLista;
@@ -33,22 +39,22 @@ public class FactFachadaMazoEspFr
 	SupplierNewCarta
 	<ICartaNumeroPaloEspaniola
 	<Integer, String>,
-	Integer,String> supplierCartaES_IS;
+	Integer,String> supplierCartaES_IS= new SupplierNewCartaIntegerStringEs();
 	
 	SupplierNewCarta
 	<ICartaNumeroPaloEspaniola
 	<Integer, PaloEspaniol>,
-	Integer,PaloEspaniol> supplierCartaES_IE;
+	Integer,PaloEspaniol> supplierCartaES_IE= new SupplierNewCartaIntegerPaloEspaniol();
 	
 	SupplierNewCarta
 	<ICartaNumeroPaloFrancesa
 	<Integer, String>,
-	Integer,String> supplierCartaFR_IS;
+	Integer,String> supplierCartaFR_IS= new SupplierNewCartaIntegerStringFr();
 	
 	SupplierNewCarta
 	<ICartaNumeroPaloFrancesa
-	<Integer, PaloEspaniol>,
-	Integer,PaloEspaniol> supplierCartaFR_IE;
+	<Integer, PaloFrances>,
+	Integer,PaloFrances> supplierCartaFR_IE= new SupplierNewCartaIntegerPaloFrances();
 	
 	EnumMap<TipoClasico,EnumMap<TipoParametrizacion,SupplierNewCarta>> 
 	suppliersCarta= new EnumMap<>(TipoClasico.class);
@@ -67,6 +73,7 @@ public class FactFachadaMazoEspFr
 	SupplierMazo supplierMazoML= new SupplierMazoGenMatrizLista<>();
 	EnumMap<TipoImplementacionMazo,SupplierMazo> suppliersMazo= new EnumMap<>(TipoImplementacionMazo.class);
 	
+	BuilderMazoClasicoComp<Integer, String, ICartaNumeroPaloEspaniola<Integer,String>> bMazo;
 	/*
 	SupplierMazo<ICartaNumeroPalo<N,P>, N, P> supplierMazoListaMatriz=
 			new SupplierMazoGenMatrizLista<>();
@@ -81,17 +88,23 @@ public class FactFachadaMazoEspFr
 
 		}
 		
-		inicializaFactDom();
-		inicializaSuppliersCarta();
-		
-		suppliersMazo.put(TipoImplementacionMazo.listaMatriz,supplierMazoML);
-		
+		//al no estar inicializados, se guardan como nulll, por lo que se hace despues de construir, en getInst
+		inicializa();
 		
 		
 		
 		
 		/*dominiosVP.put(TipoClasico.Espaniola, new EnumMap<>(TipoParametrizacion.class));
 		dominiosVP.put(TipoClasico.Francesa, new EnumMap<>(TipoParametrizacion.class));*/
+		
+	}
+	
+	private void inicializa()
+	{
+		inicializaFactDom();
+		inicializaSuppliersCarta();
+		
+		suppliersMazo.put(TipoImplementacionMazo.listaMatriz,supplierMazoML);
 		
 	}
 	
@@ -112,16 +125,20 @@ public class FactFachadaMazoEspFr
 	
 	private void inicializaSuppliersCarta()
 	{
+		 
 		EnumMap<TipoParametrizacion,SupplierNewCarta> mapaFr= new EnumMap<>(TipoParametrizacion.class);
 		mapaFr.put(TipoParametrizacion.Int_Enum, supplierCartaFR_IE);
 		mapaFr.put(TipoParametrizacion.Int_String, supplierCartaFR_IS);
 		suppliersCarta.put(TipoClasico.Francesa, mapaFr);
-		
+		System.out.println("insertando supliers carta "+TipoClasico.Francesa +" "+  mapaFr);
 		
 		EnumMap<TipoParametrizacion,SupplierNewCarta> mapaEs= new EnumMap<>(TipoParametrizacion.class);
 		mapaEs.put(TipoParametrizacion.Int_Enum, supplierCartaES_IE);
 		mapaEs.put(TipoParametrizacion.Int_String, supplierCartaES_IS);
 		suppliersCarta.put(TipoClasico.Espaniola, mapaEs);
+		
+		System.out.println("insertando supliers carta "+TipoClasico.Espaniola +" "+  mapaEs);
+
 		
 	}
 	
@@ -144,7 +161,7 @@ public class FactFachadaMazoEspFr
 		
 	}
 	
-	public MazoGen<ICartaNumeroPaloFrancesa<Integer, PaloFrances>, Integer, PaloFrances> crearBarajaFrancesaIE()
+	public MazoGen<CartaFrancesaOld, Integer, PaloFrances> crearBarajaFrancesaIE()
 	{
 		return crearBaraja(TipoClasico.Francesa, TipoParametrizacion.Int_Enum, TipoImplementacionMazo.listaMatriz);
 		
@@ -154,7 +171,7 @@ public class FactFachadaMazoEspFr
 	
 	public MazoGen crearBaraja(TipoClasico tipoClasico,TipoParametrizacion tipoParam, TipoImplementacionMazo tipoImplMazo)
 	{
-		BuilderMazoClasicoComp<Integer, String, ICartaNumeroPaloEspaniola<Integer,String>> bMazo= 
+		bMazo= 
 				new
 		BuilderMazoClasicoComp<>(
 				dameDominio(tipoClasico, tipoParam),
@@ -201,10 +218,12 @@ public class FactFachadaMazoEspFr
 	
 	public SupplierNewCarta dameSuplierCarta(TipoClasico tipoClasico,TipoParametrizacion tipoParam)
 	{
-		return suppliersCarta.get(tipoClasico).get(tipoParam);
+		SupplierNewCarta s = suppliersCarta.get(tipoClasico).get(tipoParam);
+		System.out.println("supplier new carta "+tipoClasico + " "+ tipoParam + "-> "+s);
+		return s;
 	}
 	
-	private static FactFachadaMazoEspFr inst= new FactFachadaMazoEspFr();
+	
 
 	/*
 	public SupplierNewCarta<ICartaNumeroPaloEspaniola<Integer, String>, Integer, String> getSupplierCartaES_IS() {
@@ -259,9 +278,19 @@ public class FactFachadaMazoEspFr
 		return suppliersMazo;
 	}
 */
-	public static FactFachadaMazoEspFr getInst() {
+	
+	private static FactFachadaMazoEspFr inst;
+	public static FactFachadaMazoEspFr getInst()
+	{
+		if(inst==null)
+		{
+			inst= new FactFachadaMazoEspFr();
+			inst.inicializa();
+		}
 		return inst;
 	}
+
+	
 	
 	
 

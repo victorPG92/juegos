@@ -13,6 +13,6 @@ implements SupplierMazo<C, N, P>
 	
 	public MazoGenOptMatrizLista<C, N, P> creaMazo(SupplierNewCarta<C, N, P> s, DominioValorPalo<N, P, C> domVP)
 	{
-		return new MazoGenOptMatrizLista<C,N,P>(s,domVP);
+		return new MazoGenOptMatrizLista<>(s,domVP);
 	}
 }
