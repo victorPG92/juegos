@@ -30,6 +30,28 @@ public enum NumeroCarta
 		this.valor = valor;
 		this.letra=letra;
 	}
+
+	public int getValor()
+	{
+		return valor;
+	}
+
+	public void setValor(int valor)
+	{
+		this.valor = valor;
+	}
+
+	public String getLetra()
+	{
+		return letra;
+	}
+
+	public void setLetra(String letra)
+	{
+		this.letra = letra;
+	}
+	
+	
 	
 	
 
