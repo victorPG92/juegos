@@ -2,7 +2,6 @@ package juegos.cartas.cartas.ordenar.comp;
 
 import java.util.Comparator;
 
-import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
 
 /**

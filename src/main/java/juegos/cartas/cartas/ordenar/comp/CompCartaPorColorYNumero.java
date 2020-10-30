@@ -2,10 +2,7 @@ package juegos.cartas.cartas.ordenar.comp;
 
 import java.util.Comparator;
 
-
-import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.CartaNumeroPalo;
-import juegos.cartas.cartas.cartas.palos.PaloFrances;
 
 /**
  * Compara cartas segun el palo

@@ -3,7 +3,7 @@ package juegos.cartas.cartas.juego.analisis;
 import java.util.ArrayList;
 import java.util.List;
 
-import juegos.cartas.cartas.cartas.CartaFrancesaOld;
+import juegos.cartas.cartas.cartas.ICartaComparable;
 import juegos.cartas.cartas.juego.Mano;
 import juegos.cartas.cartas.utils.Combinaciones;
 
@@ -16,7 +16,10 @@ import juegos.cartas.cartas.utils.Combinaciones;
 	 * sacar de 7 cartas 5 , que den la jugada mayor
 	 *
 	 */
-	public class SaberMejorJugada {
+	public class SaberMejorJugada<C extends ICartaComparable> 
+	{
+		
+		private int tamMano;
 		
 		
 		//private ArrayList<Carta> cartas;
@@ -30,9 +33,10 @@ import juegos.cartas.cartas.utils.Combinaciones;
 		
 		
 		//public EncontrarMejorJugada(ArrayList<Carta> cartas)
-		public SaberMejorJugada(SaberJugada sj)
+		public SaberMejorJugada(SaberJugada sj, int tam)
 		{
 			this.sj=sj;
+			tamMano=tam;
 				
 			
 		}
@@ -41,16 +45,16 @@ import juegos.cartas.cartas.utils.Combinaciones;
 		 * Busco la mejor mano dado unas cartas
 		 * @param cartas
 		 */
-		public void buscar(List<CartaFrancesaOld> cartas)
+		public void buscar(List<C> cartas)
 		{
 			//Combinaciones cmb = new Combinaciones(7, 5);
-			Combinaciones cmb = new Combinaciones(cartas.size(), 5);
+			Combinaciones cmb = new Combinaciones(cartas.size(), tamMano);
 			
-			ArrayList<ArrayList<Integer>> combinaciones = cmb.dameTodasLasCombinaciones();
+			List<List<Integer>> combinaciones = cmb.dameTodasLasCombinaciones();
 			
-			for(ArrayList<Integer> indices : combinaciones)
+			for(List<Integer> indices : combinaciones)
 			{
-				List<CartaFrancesaOld> manoTemp = new  ArrayList<CartaFrancesaOld >();
+				List<C> manoTemp = new  ArrayList<>();
 				for(Integer i : indices)
 					manoTemp.add(cartas.get(i));
 

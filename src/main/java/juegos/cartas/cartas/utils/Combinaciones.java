@@ -2,6 +2,7 @@ package juegos.cartas.cartas.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 
@@ -16,14 +17,14 @@ public class Combinaciones
 	
 	@SuppressWarnings("unused")
 	private int m;
-	ArrayList<boolean[]> combsPosibles;
+	List<boolean[]> combsPosibles;
 	
 	public Combinaciones(int n, int m)
 	{
 		
 		this.n=n;
 		this.m=m;
-		combsPosibles = new ArrayList<boolean[]>();
+		combsPosibles = new ArrayList<>();
 		boolean[] elegidas = new boolean[n];
 		if(n>=m)
 			comb( m,  0, elegidas);
@@ -69,13 +70,13 @@ public class Combinaciones
 		
 	}
 	
-	public ArrayList<ArrayList<Integer>> dameTodasLasCombinaciones()
+	public List<List<Integer>> dameTodasLasCombinaciones()
 	{
-		ArrayList<ArrayList<Integer>> r = new ArrayList<ArrayList<Integer>>();
+		List<List<Integer>> r = new ArrayList<>();
 		for(boolean comb[] : combsPosibles)
 		{
 			//System.out.println(Arrays.toString(comb));
-			ArrayList<Integer> c= new ArrayList<Integer>();
+			List<Integer> c= new ArrayList<>();
 			for(int i=0;i<comb.length;i++)
 			{
 				if(comb[i]) c.add(i);

@@ -19,7 +19,7 @@ public class CombinacionesMultiples
 	private int n2;
 	private int m2;
 	//ArrayList<ParTipo<boolean[]>> combsPosibles;
-	List<ParTipo<ArrayList<Integer>>> combsPosibles;
+	List<ParTipo<List<Integer>>> combsPosibles;
 	
 	public CombinacionesMultiples(int n1, int m1,int n2, int m2)
 	{
@@ -42,7 +42,7 @@ public class CombinacionesMultiples
 	
 	public void creaCombinaciones()
 	{
-		combsPosibles = new ArrayList<ParTipo<ArrayList<Integer>>>();//new ArrayList<ParTipo<Integer>>();
+		combsPosibles = new ArrayList<ParTipo<List<Integer>>>();//new ArrayList<ParTipo<Integer>>();
 		
 		
 		
@@ -51,19 +51,20 @@ public class CombinacionesMultiples
 			Combinaciones c1 = new Combinaciones(n1,m1);
 			Combinaciones c2 = new Combinaciones(n2,m2);
 			
-			ArrayList<ArrayList<Integer>> combs1= c1.dameTodasLasCombinaciones();
-			ArrayList<ArrayList<Integer>> combs2= c2.dameTodasLasCombinaciones();
-			for(ArrayList<Integer> p1: combs1)
+			List<List<Integer>> combs1 = c1.dameTodasLasCombinaciones();
+			List<List<Integer>>  combs2= c2.dameTodasLasCombinaciones();
+			
+			for(List<Integer> p1: combs1)
 			{
-				for(ArrayList<Integer> p2: combs2)
+				for(List<Integer> p2: combs2)
 				{
-					combsPosibles.add(new ParTipo<ArrayList<Integer>>(p1,p2));
+					combsPosibles.add(new ParTipo<List<Integer>>(p1,p2));
 				}
 			}
 		}
 	}
 	
-	public List<ParTipo<ArrayList<Integer>>> dameTodasLasCombinaciones()
+	public List<ParTipo<List<Integer>>> dameTodasLasCombinaciones()
 	{
 		return combsPosibles;
 	}

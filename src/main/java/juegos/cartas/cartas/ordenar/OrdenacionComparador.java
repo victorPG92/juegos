@@ -3,7 +3,6 @@ package juegos.cartas.cartas.ordenar;
 import java.util.Comparator;
 import java.util.List;
 
-import juegos.cartas.cartas.cartas.CartaFrancesaOld;
 import juegos.cartas.cartas.cartas.ICartaComparable;
 
 public class OrdenacionComparador<T extends ICartaComparable> implements OrdenacionCartas<T>//<CartaFrancesaOld>
